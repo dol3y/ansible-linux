@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# This file is managed by Ansible.
+# Do NOT modify this file directly.
+
+for battery in $(upower -e | grep _BAT); do
+  echo -n B${battery: -1}:$(upower -i $battery | grep 'percentage:' | awk '{print $2}')
+  echo -n " "
+done

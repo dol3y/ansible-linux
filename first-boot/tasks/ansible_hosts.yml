@@ -1,0 +1,15 @@
+---
+- name: ansible-hosts | /etc/ansible
+  file: >
+    path=/etc/ansible
+    mode=0755
+    state=directory
+  tags: ansible-hosts
+  become: true
+
+- name: ansible-hosts | local connection
+  copy: >
+    content="localhost ansible_connection=local"
+    dest=/etc/ansible/hosts
+  tags: ansible-hosts
+  become: true

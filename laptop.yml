@@ -1,0 +1,5 @@
+---
+- hosts: localhost
+  roles:
+    - { role: first-boot, tags: [ 'fb' ] }
+    - { role: home, tags: [ 'h' ] }

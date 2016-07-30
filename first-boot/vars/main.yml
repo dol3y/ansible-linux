@@ -1,0 +1,33 @@
+---
+binaries:
+  - alpine
+  - apt-file
+  - dsh
+  - figlet
+  - git-cola
+  - git-flow
+  - graphviz
+  - ipcalc
+  - iptraf
+  - irssi
+  - jq
+  - keepassx
+  - keychain
+  - links2
+  - mtr
+  - mutt
+  - ngrep
+  - nmap
+  - p7zip-full
+  - p7zip-rar
+  - pv
+  - rdesktop
+  - screen
+  - tig
+  - tmux
+  - unrar
+  - unzip
+  - uptimed
+  - whois
+
+user: "{{ lookup('env','USER') }}"

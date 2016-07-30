@@ -1,0 +1,7 @@
+---
+- name: dropbox | install
+  package: >
+    name=nautilus-dropbox
+    state=latest
+  tags: dropbox
+  become: true

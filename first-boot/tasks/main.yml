@@ -1,0 +1,6 @@
+---
+- include: sudo.yml
+- include: editor.yml
+- include: ansible_hosts.yml
+- include: binaries.yml
+- include: dropbox.yml

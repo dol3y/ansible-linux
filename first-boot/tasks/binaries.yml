@@ -1,0 +1,9 @@
+---
+- name: binaries | install
+  package: >
+    name={{ item }}
+    state=latest
+  with_items:
+    - "{{ binaries }}"
+  tags: binaries
+  become: true
