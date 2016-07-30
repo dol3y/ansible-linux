@@ -31,3 +31,9 @@ binaries:
   - whois
 
 user: "{{ lookup('env','USER') }}"
+
+cisco_vpn:
+  - vpnc
+  - vpnc-scripts
+  - network-manager-vpnc
+  - network-manager-vpnc-gnome

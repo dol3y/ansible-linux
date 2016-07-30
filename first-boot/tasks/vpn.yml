@@ -1,0 +1,9 @@
+---
+- name: cisco | vpn
+  package: >
+    name={{ item }}
+    state=latest
+  with_items:
+    - "{{ cisco_vpn }}"
+  tags: cisco
+  become: true

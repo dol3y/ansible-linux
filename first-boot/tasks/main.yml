@@ -4,3 +4,4 @@
 - include: ansible_hosts.yml
 - include: binaries.yml
 - include: dropbox.yml
+- include: vpn.yml
