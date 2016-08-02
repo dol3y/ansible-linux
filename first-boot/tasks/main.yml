@@ -5,3 +5,4 @@
 - include: binaries.yml
 - include: dropbox.yml
 - include: vpn.yml
+- include: docker.yml
