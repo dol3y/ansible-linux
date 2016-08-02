@@ -1,4 +1,20 @@
 ---
+- name: dropbox | increase watches
+  copy: >
+    src=60-fs-inotify-max_user_watches.conf
+    dest=/etc/sysctl.d/60-fs-inotify-max_user_watches.conf
+  register: dropbox_sysctl
+  tags: dropbox
+  become: true
+
+- name: dropbox | reload sysctl
+  service: >
+    name=procps
+    state=restarted
+  when: dropbox_sysctl.changed
+  tags: dropbox
+  become: true
+
 - name: dropbox | install
   package: >
     name=nautilus-dropbox
