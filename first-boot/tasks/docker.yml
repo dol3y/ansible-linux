@@ -28,3 +28,26 @@
     state=latest
   tags: docker
   become: true
+
+- name: docker | add docker group
+  group: >
+    name=docker
+    state=present
+  tags: docker
+  become: true
+
+- name: docker | update group
+  user: >
+    name={{ lookup('env','USER') }}
+    append=yes
+    groups=docker
+  tags: docker
+  become: true
+
+- name: docker | start
+  service: >
+    name=docker
+    state=started
+    enabled=yes
+  tags: docker
+  become: true
