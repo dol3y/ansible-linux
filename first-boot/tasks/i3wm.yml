@@ -1,0 +1,7 @@
+---
+- name: i3 | install
+  package: >
+    name=i3
+    state=latest
+  tags: i3
+  become: true
