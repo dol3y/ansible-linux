@@ -7,3 +7,13 @@
     - "{{ binaries }}"
   tags: binaries
   become: true
+
+- name: binaries | python deps
+  package: >
+    name={{ item }}
+    state=latest
+  with_items:
+    - "libssl-dev"
+    - "libffi-dev"
+  tags: binaries
+  become: true
