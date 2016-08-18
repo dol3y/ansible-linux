@@ -1,5 +1,5 @@
 ---
-- name: binaries | install
+- name: binaries | standard utils
   package: >
     name={{ item }}
     state=latest

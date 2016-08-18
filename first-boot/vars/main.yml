@@ -23,6 +23,7 @@ binaries:
   - pv
   - rdesktop
   - screen
+  - sshuttle
   - tig
   - tmux
   - unrar
