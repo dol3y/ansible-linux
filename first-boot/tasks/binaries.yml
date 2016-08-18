@@ -17,3 +17,12 @@
     - "libffi-dev"
   tags: binaries
   become: true
+
+- name: binaries | desktop goodies
+  package: >
+    name={{ item }}
+    state=latest
+  with_items:
+    - "pulseaudio-module-bluetooth"
+  tags: binaries
+  become: true
