@@ -3,6 +3,7 @@ binaries:
   - alpine
   - apt-file
   - dsh
+  - expect
   - figlet
   - git-cola
   - git-flow
