@@ -1,0 +1,28 @@
+---
+- name: java | install webupd8 ppa
+  apt_repository: >
+    repo="ppa:webupd8team/java"
+    update_cache=yes
+    state=present
+  tags: java
+  become: true
+
+- name: java | accept license
+  debconf: >
+    name=oracle-java8-installer
+    question=shared/accepted-oracle-license-v1-1
+    value=true
+    vtype=select
+  tags: java
+  become: true
+
+- name: java | install java 8
+  apt: >
+    name={{ item }}
+    state=latest
+  with_items:
+    - oracle-java8-installer
+    - oracle-java8-set-default
+    - maven
+  tags: java
+  become: true

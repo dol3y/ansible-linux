@@ -6,4 +6,5 @@
 - include: dropbox.yml
 - include: vpn.yml
 - include: docker.yml
+- include: java.yml
 - include: i3wm.yml
