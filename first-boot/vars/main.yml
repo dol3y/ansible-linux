@@ -27,6 +27,7 @@ binaries:
   - sshuttle
   - tig
   - tmux
+  - unetbootin
   - unrar
   - unzip
   - uptimed
