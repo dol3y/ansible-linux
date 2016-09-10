@@ -1,5 +1,6 @@
 ---
-- unarchive: >
+- name: pycharm | install
+  unarchive: >
     src=https://download.jetbrains.com/python/pycharm-community-2016.2.3.tar.gz
     remote_src=yes
     dest=/opt

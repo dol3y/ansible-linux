@@ -5,7 +5,7 @@
   tags: insomnia
   become: yes
 
-- name: insomnia | add groups
+- name: insomnia | update .desktop file
   lineinfile: >
     dest=/usr/share/applications/Insomnia.desktop
     line=Categories=Development;
