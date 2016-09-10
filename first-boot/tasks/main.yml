@@ -9,3 +9,4 @@
 - include: java.yml
 - include: i3wm.yml
 - include: insomnia.yml
+- include: pycharm.yml
