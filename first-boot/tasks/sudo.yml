@@ -4,4 +4,4 @@
     src=sudo.j2
     dest=/etc/sudoers.d/{{ user }}
   tags: sudo
-  become: true
+  become: yes

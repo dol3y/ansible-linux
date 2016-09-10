@@ -6,7 +6,7 @@
   with_items:
     - "{{ binaries }}"
   tags: binaries
-  become: true
+  become: yes
 
 - name: binaries | unetbootin fix
   lineinfile: >
@@ -15,7 +15,7 @@
     line="Exec=/usr/bin/unetbootin -s"
     state=present
   tags: binaries
-  become: true
+  become: yes
 
 - name: binaries | python deps
   package: >
@@ -25,7 +25,7 @@
     - "libssl-dev"
     - "libffi-dev"
   tags: binaries
-  become: true
+  become: yes
 
 - name: binaries | desktop goodies
   package: >
@@ -34,4 +34,4 @@
   with_items:
     - "pulseaudio-module-bluetooth"
   tags: binaries
-  become: true
+  become: yes

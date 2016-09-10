@@ -4,7 +4,7 @@
     name=vim-nox
     state=latest
   tags: editor
-  become: true
+  become: yes
 
 - name: editor | update-alternatives
   alternatives: >
@@ -12,4 +12,4 @@
     path=/usr/bin/vim.nox
   when: ansible_distribution == "Ubuntu"
   tags: editor
-  become: true
+  become: yes

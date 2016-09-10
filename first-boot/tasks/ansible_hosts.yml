@@ -5,11 +5,11 @@
     mode=0755
     state=directory
   tags: ansible-hosts
-  become: true
+  become: yes
 
 - name: ansible-hosts | local connection
   copy: >
     content="localhost ansible_connection=local"
     dest=/etc/ansible/hosts
   tags: ansible-hosts
-  become: true
+  become: yes

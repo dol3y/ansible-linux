@@ -5,7 +5,7 @@
     dest=/etc/sysctl.d/60-fs-inotify-max_user_watches.conf
   register: dropbox_sysctl
   tags: dropbox
-  become: true
+  become: yes
 
 - name: dropbox | reload sysctl
   service: >
@@ -13,11 +13,11 @@
     state=restarted
   when: dropbox_sysctl.changed
   tags: dropbox
-  become: true
+  become: yes
 
 - name: dropbox | install
   package: >
     name=nautilus-dropbox
     state=latest
   tags: dropbox
-  become: true
+  become: yes

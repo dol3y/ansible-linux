@@ -6,4 +6,4 @@
   with_items:
     - "{{ cisco_vpn }}"
   tags: cisco
-  become: true
+  become: yes
