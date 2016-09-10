@@ -8,6 +8,15 @@
   tags: binaries
   become: true
 
+- name: binaries | unetbootin fix
+  lineinfile: >
+    dest=/usr/share/applications/unetbootin.desktop
+    regexp='^Exec'
+    line="Exec=/usr/bin/unetbootin -s"
+    state=present
+  tags: binaries
+  become: true
+
 - name: binaries | python deps
   package: >
     name={{ item }}
