@@ -1,0 +1,14 @@
+---
+- name: insomnia | install
+  apt: >
+    deb=https://s3.amazonaws.com/builds-insomnia-rest/linux/insomnia-3.3.2.deb
+  tags: insomnia
+  become: yes
+
+- name: insomnia | add groups
+  lineinfile: >
+    dest=/usr/share/applications/Insomnia.desktop
+    line=Categories=Development;
+    state=present
+  tags: insomnia
+  become: yes

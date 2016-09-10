@@ -8,3 +8,4 @@
 - include: docker.yml
 - include: java.yml
 - include: i3wm.yml
+- include: insomnia.yml
