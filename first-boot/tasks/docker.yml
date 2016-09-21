@@ -22,9 +22,11 @@
   tags: docker
   become: yes
 
+  #name=docker-engine=1.11.2-0~{{ ansible_distribution_release }}
 - name: docker | install docker
   package: >
-    name=docker-engine=1.11.2-0~{{ ansible_distribution_release }}
+    name=docker-engine
+    state=latest
   tags: docker
   become: yes
 
