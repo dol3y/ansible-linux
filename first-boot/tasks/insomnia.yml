@@ -1,7 +1,7 @@
 ---
 - name: insomnia | install
   apt: >
-    deb=https://s3.amazonaws.com/builds-insomnia-rest/linux/insomnia-3.3.2.deb
+    deb=https://s3.amazonaws.com/builds-insomnia-rest/linux/insomnia-3.4.1.deb
   tags: insomnia
   become: yes
 
