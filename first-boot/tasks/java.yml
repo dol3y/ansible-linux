@@ -26,3 +26,18 @@
     - maven
   tags: java
   become: yes
+
+- name: java | firefox plugins dir
+  file: >
+    name=/usr/lib/firefox-addons/plugins
+    state=directory
+  tags: java
+  become: yes
+
+- name: java | firefox java plugin
+  file: >
+    name=/usr/lib/firefox-addons/plugins/libnpjp2.so
+    src=/usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnpjp2.so
+    state=link
+  tags: java
+  become: yes
