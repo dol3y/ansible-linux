@@ -1,0 +1,30 @@
+---
+- name: fonts | create fonts dir
+  file: >
+    path=/opt/fonts
+    state=directory
+  tags: fonts
+  become: yes
+
+- name: fonts | extract font awesome
+  unarchive: >
+    src=https://github.com/FortAwesome/Font-Awesome/archive/v4.7.0.tar.gz
+    dest=/opt/fonts
+    copy=no
+  tags: fonts
+  become: yes
+
+- name: fonts | create font awesome dir
+  file: >
+    path=/usr/share/fonts/Font-Awesome
+    state=directory
+  tags: fonts
+  become: yes
+
+- name: fonts | install font awesome
+  file: >
+    src=/opt/fonts/Font-Awesome-4.7.0/fonts/fontawesome-webfont.ttf
+    dest=/usr/share/fonts/Font-Awesome/fontawesome-webfont.ttf
+    state=link
+  tags: fonts
+  become: yes
