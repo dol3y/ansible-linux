@@ -1,15 +1,15 @@
 ---
-- name: docker | add key
-  apt_key: >
-    keyserver=p80.pool.sks-keyservers.net:80
-    id=58118E89F3A912897C070ADBF76221572C52609D
-  tags: docker
-  become: yes
-
 - name: docker | install python-apt
   pip: >
     name=python-apt
     state=latest
+  tags: docker
+  become: yes
+
+- name: docker | add key
+  apt_key: >
+    keyserver=hkp://p80.pool.sks-keyservers.net:80
+    id=58118E89F3A912897C070ADBF76221572C52609D
   tags: docker
   become: yes
 
@@ -22,7 +22,6 @@
   tags: docker
   become: yes
 
-  #name=docker-engine=1.11.2-0~{{ ansible_distribution_release }}
 - name: docker | install docker
   package: >
     name=docker-engine

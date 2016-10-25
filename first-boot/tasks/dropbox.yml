@@ -30,5 +30,6 @@
 - name: dropbox | add dbus-launch
   copy: >
     src=dropbox.desktop
-    dest=/home/{{ user }}/.local/share/applications/dropbox.desktop
+    dest=/usr/share/applications/dropbox.desktop
   tags: dropbox
+  become: yes
