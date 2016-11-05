@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-# This file is managed by Ansible.
-# Do NOT modify this file directly.
-
 import os
 import fnmatch
 
