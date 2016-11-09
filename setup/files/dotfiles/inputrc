@@ -1,0 +1,7 @@
+# This file is managed by Ansible.
+# Do NOT modify this file directly.
+
+set editing-mode emacs
+
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word

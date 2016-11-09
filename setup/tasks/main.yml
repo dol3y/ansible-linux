@@ -11,3 +11,4 @@
 - include: insomnia.yml
 - include: pycharm.yml
 - include: fonts.yml
+- include: dotfiles.yml
