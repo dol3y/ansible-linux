@@ -21,15 +21,3 @@
     state=latest
   tags: dropbox
   become: yes
-
-- name: dropbox | disable dropbox's autostart
-  command: >
-    dropbox autostart n
-  tags: dropbox
-
-- name: dropbox | add dbus-launch
-  copy: >
-    src=dropbox.desktop
-    dest=/usr/share/applications/dropbox.desktop
-  tags: dropbox
-  become: yes

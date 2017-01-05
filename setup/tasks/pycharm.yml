@@ -4,7 +4,6 @@
     src=https://download.jetbrains.com/python/pycharm-community-2016.2.3.tar.gz
     remote_src=yes
     dest=/opt
-    copy=no
     creates=/opt/pycharm-community-2016.2.3/bin/pycharm.sh
   tags: pycharm
   become: yes

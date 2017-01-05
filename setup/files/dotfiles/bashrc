@@ -87,10 +87,9 @@ export GIT_PS1_SHOWSTASHSTATE=true
 
 PS1="\[$green\]\u@\h\[\e[m\]:\[$cyan\]\W\[\e[m\]\[$red\]\$(__git_ps1 ' [%s]')\[\e[m\]\n\$ "
 
-# test settings
-# make bash autocomplete with up arrow
-bind '"\e[A":history-search-backward'
-bind '"\e[B":history-search-forward'
-
-# make tab cycle through commands instead of listing
-bind '"\t":menu-complete'
+## make bash autocomplete with up arrow
+#bind '"\e[A":history-search-backward'
+#bind '"\e[B":history-search-forward'
+#
+## make tab cycle through commands instead of listing
+#bind '"\t":menu-complete'
