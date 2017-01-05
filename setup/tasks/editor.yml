@@ -1,15 +1,39 @@
 ---
-- name: editor | vim-nox
+- name: vim | vim-nox
   package: >
     name=vim-nox
     state=latest
-  tags: editor
+  tags: vim
   become: yes
 
-- name: editor | update-alternatives
+- name: vim | update-alternatives
   alternatives: >
     name=editor
     path=/usr/bin/vim.nox
   when: ansible_distribution == "Ubuntu"
-  tags: editor
+  tags: vim
   become: yes
+
+- name: pathogen | prepare pathogen
+  file: >
+    path={{ item }}
+    state=directory
+    recurse=yes
+  with_items:
+    - "{{ vim_autoload }}"
+    - "{{ vim_bundle }}"
+  tags: ['vim', 'pathogen']
+
+- name: pathogen | infect
+  get_url: >
+    url=https://tpo.pe/pathogen.vim
+    dest={{ vim_autoload }}
+  tags: ['vim', 'pathogen']
+
+- name: pathogen | install vim plugins
+  git: >
+    repo={{ item }}
+    dest={{ vim_bundle }}/{{ item | basename | replace('.git', '') }}
+  with_items:
+    - "{{ vim_plugins }}"
+  tags: ['vim', 'pathogen']

@@ -47,7 +47,7 @@ cisco_vpn:
   - network-manager-vpnc
   - network-manager-vpnc-gnome
 
-git_repos:
+vim_plugins:
   - git://github.com/Shougo/neocomplete.vim.git
   - git://github.com/airblade/vim-gitgutter.git
   - git://github.com/altercation/vim-colors-solarized.git

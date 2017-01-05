@@ -1,31 +1,15 @@
 ---
-- name: dotfiles | prepare pathogen
+- name: dotfiles | create standard dirs
   file: >
     path={{ item }}
     state=directory
     recurse=yes
   with_items:
-    - "{{ vim_autoload }}"
-    - "{{ vim_bundle }}"
     - "{{ my_bin }}"
     - "{{ my_src }}"
-  tags: pathogen
+  tags: dotfiles
 
-- name: dotfiles | pathogen infect
-  get_url: >
-    url=https://tpo.pe/pathogen.vim
-    dest={{ vim_autoload }}
-  tags: pathogen
-
-- name: dotfiles | install vim plugins
-  git: >
-    repo={{ item }}
-    dest={{ vim_bundle }}/{{ item | basename | replace('.git', '') }}
-  with_items:
-    - "{{ git_repos }}"
-  tags: pathogen
-
-- name: dotfiles | install dots
+- name: dotfiles | install .*
   copy: >
     src={{ item }}
     dest={{ home_dir}}/.{{ item | basename }}
@@ -37,6 +21,6 @@
 - name: dotfiles | tmux battery
   copy: >
     src=battery
-    dest={{ home_dir }}/bin/battery
+    dest={{ my_bin }}/battery
     mode=0755
   tags: dotfiles
