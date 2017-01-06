@@ -1,6 +1,5 @@
 ---
 - include: sudo.yml
-- include: editor.yml
 - include: ansible_hosts.yml
 - include: binaries.yml
 - include: dropbox.yml
@@ -8,6 +7,7 @@
 - include: docker.yml
 - include: java.yml
 - include: i3wm.yml
+- include: editor.yml
 - include: insomnia.yml
 - include: pycharm.yml
 - include: fonts.yml
