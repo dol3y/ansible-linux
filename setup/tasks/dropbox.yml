@@ -15,9 +15,15 @@
   tags: dropbox
   become: yes
 
+#
+# https://bugs.launchpad.net/ubuntu/+source/nautilus-dropbox/+bug/1546176
+#
 - name: dropbox | install
   package: >
-    name=nautilus-dropbox
+    name={{ item }}
     state=latest
+  with_items:
+    - nautilus-dropbox
+    - thunar-dropbox-plugin
   tags: dropbox
   become: yes
