@@ -10,5 +10,6 @@
 - include: editor.yml
 - include: insomnia.yml
 - include: pycharm.yml
+- include: dbeaver.yml
 - include: fonts.yml
 - include: dotfiles.yml
