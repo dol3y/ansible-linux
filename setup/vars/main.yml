@@ -15,6 +15,7 @@ binaries:
   - git-cola
   - git-flow
   - graphviz
+  - htop
   - httpie
   - ipcalc
   - iptraf
