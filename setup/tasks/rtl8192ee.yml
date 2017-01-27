@@ -1,0 +1,10 @@
+---
+#
+# https://github.com/lwfinger/rtlwifi_new - still rubbish
+#
+- name: realtek wifi | add config
+  copy: >
+    src=rtl8192ee.conf
+    dest=/etc/modprobe.d/rtl8192ee.conf
+  tags: realtek
+  become: yes

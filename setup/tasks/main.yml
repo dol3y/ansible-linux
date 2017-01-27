@@ -13,3 +13,4 @@
 - include: dbeaver.yml
 - include: fonts.yml
 - include: dotfiles.yml
+- include: rtl8192ee.yml
