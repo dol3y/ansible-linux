@@ -5,6 +5,6 @@ python:
 
 build:
   ci:
-    - bin/install-ansible.sh
+    - pip install -q paramiko PyYAML Jinja2 httplib2 six ansible==2.2.0.0
     - pip install -q ansible-lint
     - ansible-lint setup.yml
