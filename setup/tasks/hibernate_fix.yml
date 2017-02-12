@@ -1,0 +1,10 @@
+---
+#
+# https://ubuntuforums.org/showthread.php?t=2332834
+#
+- name: hibernate | enable hibernation
+  copy: >
+    src=com.ubuntu.enable-hibernate.pkla
+    dest=/etc/polkit-1/localauthority/50-local.d/com.ubuntu.enable-hibernate.pkla
+  tags: hibernate
+  become: yes

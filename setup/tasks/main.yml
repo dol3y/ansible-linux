@@ -8,9 +8,10 @@
 - include: java.yml
 - include: i3wm.yml
 - include: editor.yml
-- include: insomnia.yml
+#- include: insomnia.yml
 - include: pycharm.yml
 - include: dbeaver.yml
 - include: fonts.yml
 - include: dotfiles.yml
 - include: rtl8192ee.yml
+- include: hibernate_fix.yml
