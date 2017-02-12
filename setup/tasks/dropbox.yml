@@ -3,15 +3,7 @@
   copy: >
     src=60-fs-inotify-max_user_watches.conf
     dest=/etc/sysctl.d/60-fs-inotify-max_user_watches.conf
-  register: dropbox_sysctl
-  tags: dropbox
-  become: yes
-
-- name: dropbox | reload sysctl
-  service: >
-    name=procps
-    state=restarted
-  when: dropbox_sysctl.changed
+  notify: reload sysctl
   tags: dropbox
   become: yes
 
