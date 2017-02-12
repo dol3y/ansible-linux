@@ -6,5 +6,6 @@
   copy: >
     src=com.ubuntu.enable-hibernate.pkla
     dest=/etc/polkit-1/localauthority/50-local.d/com.ubuntu.enable-hibernate.pkla
+    backup=yes
   tags: hibernate
   become: yes
