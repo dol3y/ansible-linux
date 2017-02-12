@@ -8,3 +8,11 @@
     dest=/etc/modprobe.d/rtl8192ee.conf
   tags: realtek
   become: yes
+
+# disable wifi
+- name: realtek wifi | blacklist module
+  lineinfile: >
+    dest=/etc/modprobe.d/blacklist.conf
+    line='blacklist rtl8192ee'
+  tags: realtek
+  become: yes
