@@ -2,7 +2,7 @@
 - name: binaries | standard utils
   package: >
     name={{ item }}
-    state=latest
+    state=present
   with_items:
     - "{{ binaries }}"
   tags: binaries
@@ -20,7 +20,7 @@
 - name: binaries | python deps
   package: >
     name={{ item }}
-    state=latest
+    state=present
   with_items:
     - "libssl-dev"
     - "libffi-dev"
@@ -30,7 +30,7 @@
 - name: binaries | desktop goodies
   package: >
     name={{ item }}
-    state=latest
+    state=present
   with_items:
     - "pulseaudio-module-bluetooth"
   tags: binaries

@@ -19,7 +19,7 @@
 - name: java | install java 8
   apt: >
     name={{ item }}
-    state=latest
+    state=present
   with_items:
     - oracle-java8-installer
     - oracle-java8-set-default

@@ -2,7 +2,7 @@
 - name: cisco | vpn
   package: >
     name={{ item }}
-    state=latest
+    state=present
   with_items:
     - "{{ cisco_vpn }}"
   tags: cisco

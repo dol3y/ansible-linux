@@ -2,7 +2,7 @@
 - name: docker | install python-apt
   pip: >
     name=python-apt
-    state=latest
+    state=present
   tags: docker
   become: yes
 
@@ -25,7 +25,7 @@
 - name: docker | install docker
   package: >
     name=docker-engine
-    state=latest
+    state=present
   tags: docker
   become: yes
 

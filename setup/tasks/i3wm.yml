@@ -2,6 +2,6 @@
 - name: i3 | install
   package: >
     name=i3
-    state=latest
+    state=present
   tags: i3
   become: yes

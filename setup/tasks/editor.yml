@@ -2,7 +2,7 @@
 - name: vim | vim-nox
   package: >
     name=vim-nox
-    state=latest
+    state=present
   tags: vim
   become: yes
 
@@ -36,4 +36,4 @@
     dest={{ vim_bundle }}/{{ item | basename | replace('.git', '') }}
   with_items:
     - "{{ vim_plugins }}"
-  tags: ['vim', 'pathogen']
+  tags: ['vim', 'pathogen', 'skip_ansible_lint']
