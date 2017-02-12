@@ -1,0 +1,10 @@
+language: python
+
+python:
+  - 2.7.6
+
+build:
+  pre_ci:
+    - pip install -q ansible-lint
+  ci:
+    - ansible-lint setup.yml
