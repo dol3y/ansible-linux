@@ -4,9 +4,7 @@ python:
   - 2.7.6
 
 build:
-  pre_ci:
-    - apt-get update
+  ci:
     - bin/install-ansible.sh
     - pip install -q ansible-lint
-  ci:
     - ansible-lint setup.yml
