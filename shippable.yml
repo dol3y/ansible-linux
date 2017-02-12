@@ -5,6 +5,7 @@ python:
 
 build:
   pre_ci:
+    - apt-get update
     - bin/install-ansible.sh
     - pip install -q ansible-lint
   ci:
