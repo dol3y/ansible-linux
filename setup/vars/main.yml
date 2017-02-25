@@ -28,6 +28,7 @@ binaries:
   - mutt
   - ngrep
   - nmap
+  - parallel
   - p7zip-full
   - p7zip-rar
   - pv
