@@ -1,4 +1,11 @@
 ---
+- name: hibernate | install uswsusp
+  package: >
+    name=uswsusp
+    state=present
+  tags: hibernate
+  become: yes
+
 #
 # https://ubuntuforums.org/showthread.php?t=2332834
 #
