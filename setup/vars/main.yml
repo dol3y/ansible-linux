@@ -9,6 +9,7 @@ vim_bundle: "{{ home_dir }}/.vim/bundle"
 binaries:
   - alpine
   - apt-file
+  - build-essential
   - dsh
   - expect
   - figlet
