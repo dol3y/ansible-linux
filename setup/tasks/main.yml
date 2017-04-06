@@ -1,17 +1,45 @@
 ---
 - include: sudo.yml
+  tags: wsl
+
 - include: ansible_hosts.yml
+  tags: wsl
+
 - include: binaries.yml
+  tags: wsl
+
 - include: dropbox.yml
+  when: ansible_virtualization_role == "host"
+
 - include: vpn.yml
+  when: ansible_virtualization_role == "host"
+
 - include: docker.yml
+
 - include: java.yml
+
 - include: i3wm.yml
+
 - include: editor.yml
+  tags: wsl
+
 #- include: insomnia.yml
+#  when: ansible_virtualization_role == "host"
+
 - include: pycharm.yml
-- include: dbeaver.yml
+  when: ansible_virtualization_role == "host"
+
+#- include: dbeaver.yml
+#  when: ansible_virtualization_role == "host"
+
 - include: fonts.yml
+  tags: wsl
+
 - include: dotfiles.yml
+  tags: wsl
+
 - include: rtl8192ee.yml
+  when: ansible_virtualization_role == "host"
+
 - include: hibernate_fix.yml
+  when: ansible_virtualization_role == "host"

@@ -1,7 +1,7 @@
 ---
 - name: insomnia | install
   apt: >
-    deb=https://downloads.insomnia.rest/linux/insomnia_4.2.9_amd64.deb
+    deb=https://downloads.insomnia.rest/linux/insomnia_4.2.14_amd64.deb
   tags: insomnia
   become: yes
 
