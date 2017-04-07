@@ -38,6 +38,7 @@ binaries:
   - sshuttle
   - tig
   - tmux
+  - tree
   - unetbootin
   - unrar
   - unzip
