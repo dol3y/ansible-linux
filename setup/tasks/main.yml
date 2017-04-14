@@ -12,7 +12,6 @@
   when: ansible_virtualization_role == "host"
 
 - include: vpn.yml
-  when: ansible_virtualization_role == "host"
 
 - include: docker.yml
 
@@ -23,12 +22,14 @@
 - include: editor.yml
   tags: wsl
 
+# TODO fix url
 #- include: insomnia.yml
 #  when: ansible_virtualization_role == "host"
 
 - include: pycharm.yml
   when: ansible_virtualization_role == "host"
 
+# TODO fix url
 #- include: dbeaver.yml
 #  when: ansible_virtualization_role == "host"
 
@@ -38,8 +39,5 @@
 - include: dotfiles.yml
   tags: wsl
 
-- include: rtl8192ee.yml
-  when: ansible_virtualization_role == "host"
-
-- include: hibernate_fix.yml
-  when: ansible_virtualization_role == "host"
+- include: thinkpad.yml
+  tags: tp

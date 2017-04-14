@@ -1,0 +1,38 @@
+# ThinkPad T440 specific
+---
+# https://github.com/lwfinger/rtlwifi_new - still rubbish
+- name: thinkpad | realtek wifi config
+  copy: >
+    src=rtl8192ee.conf
+    dest=/etc/modprobe.d/rtl8192ee.conf
+  tags: realtek
+  become: yes
+  when: ansible_product_version == "ThinkPad T440"
+
+# disable wifi
+- name: thinkpad | realtek wifi blacklist module
+  lineinfile: >
+    dest=/etc/modprobe.d/blacklist.conf
+    line='blacklist rtl8192ee'
+    backup=yes
+  tags: realtek
+  become: yes
+  when: ansible_product_version == "ThinkPad T440"
+
+- name: thinkpad | install uswsusp
+  package: >
+    name=uswsusp
+    state=present
+  tags: hibernate
+  become: yes
+  when: ansible_product_version == "ThinkPad T440"
+
+# https://ubuntuforums.org/showthread.php?t=2332834
+- name: thinkpad | enable hibernation
+  copy: >
+    src=com.ubuntu.enable-hibernate.pkla
+    dest=/etc/polkit-1/localauthority/50-local.d/com.ubuntu.enable-hibernate.pkla
+    backup=yes
+  tags: hibernate
+  become: yes
+  when: ansible_product_version == "ThinkPad T440"
