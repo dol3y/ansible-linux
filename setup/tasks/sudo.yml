@@ -3,5 +3,6 @@
   template: >
     src=sudo.j2
     dest=/etc/sudoers.d/{{ user }}
+    validate='visudo -cf %s'
   tags: sudo
   become: yes
