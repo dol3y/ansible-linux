@@ -1,0 +1,34 @@
+---
+- name: xfce | numix ppa
+  apt_repository:
+    repo: "ppa:numix/ppa"
+    update_cache: yes
+    state: present
+  become: yes
+
+- name: xfce | themes
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - gtk2-engines-murrine
+    - numix-gtk-theme
+    - numix-icon-theme
+    - numix-icon-theme-circle
+  become: yes
+
+- name: xfce | local dirs
+  file:
+    name: "{{ home_dir }}/.config/xfce4/terminal"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    recurse: yes
+    state: directory
+
+- name: xfce | rc files
+  copy:
+    dest: "{{ home_dir }}/.config/xfce4/terminal/terminalrc"
+    src: xfce/terminalrc
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0664

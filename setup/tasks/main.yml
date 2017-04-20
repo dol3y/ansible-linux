@@ -41,3 +41,6 @@
 
 - include: thinkpad.yml
   tags: tp
+
+- include: xfce.yml
+  tags: xfce
