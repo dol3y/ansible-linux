@@ -12,6 +12,7 @@
   when: ansible_virtualization_role == "host"
 
 - include: vpn.yml
+  tags: vpn
 
 - include: docker.yml
 

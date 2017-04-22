@@ -9,7 +9,7 @@
 - name: xfce | themes
   apt:
     name: "{{ item }}"
-    state: latest
+    state: present
   with_items:
     - gtk2-engines-murrine
     - numix-gtk-theme

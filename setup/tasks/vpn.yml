@@ -1,9 +1,26 @@
 ---
-- name: cisco | vpn
-  package: >
-    name={{ item }}
-    state=present
+- name: vpn | cisco
+  package:
+    name: "{{ item }}"
+    state: present
   with_items:
     - "{{ cisco_vpn }}"
   tags: cisco
+  become: yes
+
+- name: vpn | patched openconnect ppa
+  apt_repository:
+    repo: "ppa:lenski/openconnect-gp"
+    update_cache: yes
+    state: present
+  tags: gp
+  become: yes
+
+- name: vpn | openconnect with gp
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ globalprotect_vpn }}"
+  tags: gp
   become: yes

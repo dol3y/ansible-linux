@@ -51,6 +51,11 @@ cisco_vpn:
   - network-manager-vpnc
   - network-manager-vpnc-gnome
 
+globalprotect_vpn:
+  - openconnect
+  - network-manager-openconnect
+  - network-manager-openconnect-gnome
+
 vim_plugins:
   - git://github.com/Shougo/neocomplete.vim.git
   - git://github.com/airblade/vim-gitgutter.git
