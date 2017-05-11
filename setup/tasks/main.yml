@@ -45,3 +45,6 @@
 
 - include: xfce.yml
   tags: xfce
+
+- include: lollypop.yml
+  tags: lollypop

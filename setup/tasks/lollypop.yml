@@ -1,0 +1,16 @@
+---
+- name: lollypop | ppa
+  apt_repository:
+    repo: "ppa:gnumdk/lollypop"
+    update_cache: yes
+    state: present
+  become: yes
+
+- name: lollypop | install
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - lollypop
+  become: yes
+
