@@ -48,3 +48,6 @@
 
 - include: lollypop.yml
   tags: lollypop
+
+- include: pyenv.yml
+  tags: pyenv

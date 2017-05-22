@@ -41,7 +41,7 @@ purple='\e[0;35m'
 cyan='\e[0;36m'
 white='\e[0;37m'
 
-if which rbenv &> /dev/null ; then
+if which rbenv &> /dev/null; then
     eval "$(rbenv init -)"
 fi
 
@@ -93,3 +93,9 @@ PS1="\[$green\]\u@\h\[\e[m\]:\[$cyan\]\W\[\e[m\]\[$red\]\$(__git_ps1 ' [%s]')\[\
 #
 ## make tab cycle through commands instead of listing
 #bind '"\t":menu-complete'
+
+if which pyenv &> /dev/null; then
+  export PATH="$HOME/.pyenv/bin:$PATH"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
