@@ -33,7 +33,7 @@ binaries:
   - p7zip-full
   - p7zip-rar
   - pv
-  - rdesktop
+  - remmina
   - screen
   - sshuttle
   - tig
