@@ -1,26 +1,26 @@
 ---
 - name: binaries | standard utils
-  package: >
-    name={{ item }}
-    state=present
+  package:
+    name: "{{ item }}"
+    state: present
   with_items:
     - "{{ binaries }}"
   tags: binaries
   become: yes
 
 - name: binaries | unetbootin fix
-  lineinfile: >
-    dest=/usr/share/applications/unetbootin.desktop
-    regexp='^Exec'
-    line="Exec=/usr/bin/unetbootin -s"
-    state=present
+  lineinfile:
+    dest: /usr/share/applications/unetbootin.desktop
+    regexp: '^Exec'
+    line: "Exec=/usr/bin/unetbootin -s"
+    state: present
   tags: binaries
   become: yes
 
 - name: binaries | python deps
-  package: >
-    name={{ item }}
-    state=present
+  package:
+    name: "{{ item }}"
+    state: present
   with_items:
     - "libssl-dev"
     - "libffi-dev"
@@ -28,10 +28,18 @@
   become: yes
 
 - name: binaries | desktop goodies
-  package: >
-    name={{ item }}
-    state=present
+  package:
+    name: "{{ item }}"
+    state: present
   with_items:
     - "pulseaudio-module-bluetooth"
+  tags: binaries
+  become: yes
+
+- name: binaries | dkms
+  package:
+    name: dkms
+    state: present
+  when: ansible_virtualization_role == "guest"
   tags: binaries
   become: yes
