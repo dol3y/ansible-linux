@@ -1,9 +1,14 @@
 ---
 - name: pycharm | install
-  unarchive: >
-    src=https://download.jetbrains.com/python/pycharm-community-{{ pycharm_ver }}.tar.gz
-    remote_src=yes
-    dest=/opt
-    creates=/opt/pycharm-community-{{ pycharm_ver }}/bin/pycharm.sh
-  tags: pycharm
+  unarchive:
+    src: "https://download.jetbrains.com/python/pycharm-community-{{ pycharm_ver }}.tar.gz"
+    remote_src: yes
+    dest: /opt
+    creates: "/opt/pycharm-community-{{ pycharm_ver }}/bin/pycharm.sh"
   become: yes
+
+- name: pycharm | update .desktop file
+  template:
+    src: jetbrains-pycharm-ce.desktop.j2
+    dest: "{{ home_dir }}/.local/share/applications/jetbrains-pycharm-ce.desktop"
+    mode: 0644
