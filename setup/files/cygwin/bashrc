@@ -7,26 +7,21 @@ shopt -s histappend
 # Don't put duplicate lines in the history.
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 
-if [ -f "${HOME}/.bash_aliases" ]; then
-  source "${HOME}/.bash_aliases"
+if [ -f "$HOME/.bash_aliases" ]; then
+  source "$HOME/.bash_aliases"
 fi
 
-PATH="~/bin:$PATH"
+PATH="$HOME/bin:$PATH"
+export PATH
 
 case $OSTYPE in
   'cygwin')
-    ~/bin/keychainctl start
-    source ~/.keychain/$(hostname -s)-sh
+    keychainctl start
+    source "$HOME/.keychain/$(hostname -s)-sh"
     source /usr/share/bash-completion/bash_completion
     source /usr/share/bash-completion/completions/git
     ;;
 esac
-
-export PATH
-export GIT_PS1_SHOWDIRTYSTATE=true
-export GIT_PS1_SHOWUNTRACKEDFILES=true
-export GIT_PS1_SHOWSTASHSTATE=true
-export DISPLAY=:0
 
 black='\e[0;30m'
 red='\e[0;31m'
@@ -37,4 +32,4 @@ purple='\e[0;35m'
 cyan='\e[0;36m'
 white='\e[0;37m'
 
-PS1="\[$green\]\u@\h\[\e[m\]:\[$cyan\]\W\[\e[m\]\[$red\]\$(__git_ps1 ' [%s]')\[\e[m\]\n\$ "
+PS1="\[$green\]\u@\h\[\e[m\]:\[$cyan\]\W\[\e[m\]\[$red\]\[\e[m\]\n\$ "

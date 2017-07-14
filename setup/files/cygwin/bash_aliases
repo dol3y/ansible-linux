@@ -1,0 +1,39 @@
+function current_branch() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || \
+  ref=$(git rev-parse --short HEAD 2> /dev/null) || return
+  echo ${ref#refs/heads/}
+}
+
+alias ap='ansible-playbook'
+alias bc='bc -l'
+alias cp='cp -i'
+alias df='df -H'
+alias du='du -ch'
+alias explorer='cygstart explorer'
+alias gba='git branch -a'
+alias gcb='git checkout -b'
+alias gcd='git checkout develop'
+alias gcm='git checkout master'
+alias gco='git checkout'
+alias gdff='git diff'
+alias ggc='git clone'
+alias ggl='git log'
+alias ggpull='git pull origin $(current_branch)'
+alias ggpur='git pull --rebase origin $(current_branch)'
+alias ggpush='git push origin $(current_branch)'
+alias grep='grep --color=auto'
+alias gss='git status -s'
+alias h='history'
+alias j='jobs -l'
+alias l='ls -lF --color=auto'
+alias la='ls -Ah --color=auto'
+alias ll='ls -alF --color=auto'
+alias lr='ls -lr --color=auto'
+alias ls='ls -GF --color=auto'
+alias mv='mv -i'
+alias setup='cygstart /cygdrive/c/Users/adolby/Downloads/setup-x86_64.exe -n'
+alias sudo="cygstart --action=runas"
+alias tc='tmux new -s cygwin'
+alias tmux='tmux -2'
+alias tree='tree -C'
+alias wget='wget -c'

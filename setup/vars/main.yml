@@ -75,22 +75,23 @@ vim_plugins:
 pycharm_ver: 2017.1.3
 
 cygwin_packages:
-  - vim
-  - chere
-  - git
-  - tmux
-  - dos2unix
-  - curl
-  - wget
-  - ca-certificates
   - bash-completion
+  - ca-certificates
+  - chere
+  - curl
+  - dos2unix
   - gcc-core
+  - git
   - httpie
   - inetutils
   - jq
+  - ncurses
   - ping
   - pv
   - shutdown
   - time
+  - tmux
   - tree
+  - vim
+  - wget
 

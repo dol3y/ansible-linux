@@ -51,10 +51,11 @@
 #    mode: 0644
 #    backup: yes
 
-- name: cygwin | get git prompts
-  get_url:
-    url: https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
-    dest: /etc/bash_completion.d/git-prompt.sh
+# Makes bash painfully slow
+#- name: cygwin | get git prompts
+#  get_url:
+#    url: https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
+#    dest: /etc/bash_completion.d/git-prompt.sh
 
 # keychain still 2.7.1 in cygwin. https://github.com/funtoo/keychain/issues/34
 - name: cygwin | install lastest keychain tool
@@ -68,18 +69,12 @@
     src: "{{ item }}"
     dest: "{{ home_dir}}/.{{ item | basename }}"
     backup: yes
+    mode: 0644
   with_items:
     - cygwin/bashrc
     - cygwin/tmux-status-bar.conf
     - cygwin/tmux.conf
     - cygwin/inputrc
-
-- name: cygwin | install pip packages
-  pip:
-    name: "{{ item }}"
-    executable: pip2
-  with_items:
-    - sshuttle
 
 - name: cygwin | install apt-cyg
   get_url:
