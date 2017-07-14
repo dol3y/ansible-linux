@@ -1,0 +1,83 @@
+---
+- name: cygwin | write /etc/ansible
+  file:
+    path: /etc/ansible
+    mode: 0755
+    state: directory
+
+- name: cygwin | setup local connection
+  copy:
+    content: "localhost ansible_connection=local"
+    dest: /etc/ansible/hosts
+
+- name: cygwin | create user dirs
+  file:
+    path: "{{ home_dir }}/{{ item }}"
+    state: directory
+  with_items:
+    - src
+    - bin
+
+- name: cygwin | stat Downloads dir
+  stat:
+    path: "{{ home_dir }}/Downloads"
+  register: downloads_dir
+
+- name: cygwin | remove Downloads if dir
+  file:
+    path: "{{ home_dir }}/Downloads"
+    state: absent
+  when:
+    - downloads_dir.stat.isdir
+    - not downloads_dir.stat.islnk
+
+- name: cygwin | link Downloads dir
+  file:
+    path: "{{ home_dir }}/Downloads"
+    src: "/cygdrive/c/Users/{{ user }}/Downloads"
+    state: link
+
+- name: cygwin | link Dropbox dir
+  file:
+    path: "{{ home_dir }}/Dropbox"
+    src: "/cygdrive/c/Users/{{ user }}/Dropbox"
+    state: link
+
+# Decided against this
+#- name: cygwin | use windows home
+#  copy:
+#    src: cygwin/nsswitch.conf
+#    dest: /etc/nsswitch.conf
+#    mode: 0644
+#    backup: yes
+
+# Makes bash painfully slow
+#- name: cygwin | get git prompts
+#  get_url:
+#    url: https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
+#    dest: /etc/bash_completion.d/git-prompt.sh
+
+# keychain still 2.7.1 in cygwin. https://github.com/funtoo/keychain/issues/34
+- name: cygwin | install lastest keychain tool
+  get_url:
+    url: https://raw.githubusercontent.com/funtoo/keychain/master/keychain.sh
+    dest: "{{ home_dir }}/bin/keychain"
+    mode: 0755
+
+- name: cygwin | install .*
+  copy:
+    src: "{{ item }}"
+    dest: "{{ home_dir}}/.{{ item | basename }}"
+    backup: yes
+    mode: 0644
+  with_items:
+    - cygwin/bashrc
+    - cygwin/tmux-status-bar.conf
+    - cygwin/tmux.conf
+    - cygwin/inputrc
+
+- name: cygwin | install apt-cyg
+  get_url:
+    url: https://raw.githubusercontent.com/transcode-open/apt-cyg/master/apt-cyg
+    dest: /usr/bin/apt-cyg
+    mode: 0755

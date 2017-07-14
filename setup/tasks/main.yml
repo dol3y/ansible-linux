@@ -1,18 +1,27 @@
 ---
+- include: cygwin.yml
+  when: ansible_os_family == "CYGWIN_NT-6.1"
+  tags:
+    - cygwin
+
 - include: sudo.yml
-  tags: wsl
+  tags:
+    - wsl
 
 - include: ansible_hosts.yml
-  tags: wsl
+  tags:
+    - wsl
 
 - include: binaries.yml
-  tags: wsl
+  tags:
+    - wsl
 
 - include: dropbox.yml
   when: ansible_virtualization_role == "host"
 
 - include: vpn.yml
-  tags: vpn
+  tags:
+    - vpn
 
 - include: docker.yml
 
@@ -21,7 +30,8 @@
 - include: i3wm.yml
 
 - include: editor.yml
-  tags: wsl
+  tags:
+    - wsl
 
 # TODO fix url
 #- include: insomnia.yml
@@ -35,19 +45,26 @@
 #  when: ansible_virtualization_role == "host"
 
 - include: fonts.yml
-  tags: wsl
+  tags:
+    - wsl
 
 - include: dotfiles.yml
-  tags: wsl
+  tags:
+    - wsl
 
 - include: thinkpad.yml
-  tags: tp
+  tags:
+    - tp
 
 - include: xfce.yml
-  tags: xfce
+  tags:
+    - xfce
 
 - include: lollypop.yml
-  tags: lollypop
+  tags:
+    - lollypop
 
 - include: pyenv.yml
-  tags: pyenv
+  tags:
+    - pyenv
+

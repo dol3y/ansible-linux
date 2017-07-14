@@ -22,13 +22,19 @@
   with_items:
     - "{{ vim_autoload }}"
     - "{{ vim_bundle }}"
-  tags: ['vim', 'pathogen']
+  tags:
+    - vim
+    - pathogen
+    - cygwin
 
 - name: pathogen | infect
   get_url: >
     url=https://tpo.pe/pathogen.vim
     dest={{ vim_autoload }}
-  tags: ['vim', 'pathogen']
+  tags:
+    - vim
+    - pathogen
+    - cygwin
 
 - name: pathogen | install vim plugins
   git: >
@@ -36,4 +42,8 @@
     dest={{ vim_bundle }}/{{ item | basename | replace('.git', '') }}
   with_items:
     - "{{ vim_plugins }}"
-  tags: ['vim', 'pathogen', 'skip_ansible_lint']
+  tags:
+    - vim
+    - pathogen
+    - cygwin
+    - skip_ansible_lint
