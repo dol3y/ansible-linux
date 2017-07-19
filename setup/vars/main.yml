@@ -72,7 +72,7 @@ vim_plugins:
   - git://github.com/tpope/vim-sensible.git
   - git://github.com/tpope/vim-surround.git
 
-pycharm_ver: 2017.1.3
+pycharm_ver: 2017.1.5
 
 cygwin_packages:
   - bash-completion

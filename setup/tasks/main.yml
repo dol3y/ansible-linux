@@ -38,7 +38,8 @@
 #  when: ansible_virtualization_role == "host"
 
 - include: pycharm.yml
-  when: ansible_virtualization_role == "host"
+  tags:
+    - pycharm
 
 # TODO fix url
 #- include: dbeaver.yml
