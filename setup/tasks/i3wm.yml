@@ -1,7 +1,30 @@
 ---
 - name: i3 | install
-  package: >
-    name=i3
-    state=present
-  tags: i3
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - i3
+    - i3blocks
+    - feh
   become: yes
+
+- name: i3 | create config dir
+  file:
+    name: "{{ home_dir }}/.config/i3"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    recurse: yes
+    state: directory
+
+- name: i3 | add config
+  copy:
+    src: "i3/{{ item }}"
+    dest: "{{ home_dir }}/.config/i3/{{ item }}"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0644
+    backup: yes
+  with_items:
+    - config
+    - i3blocks.conf

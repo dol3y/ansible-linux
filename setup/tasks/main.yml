@@ -28,6 +28,8 @@
 - include: java.yml
 
 - include: i3wm.yml
+  tags:
+    - i3
 
 - include: editor.yml
   tags:
@@ -47,7 +49,9 @@
 
 - include: fonts.yml
   tags:
+    - fonts
     - wsl
+    - i3
 
 - include: dotfiles.yml
   tags:
