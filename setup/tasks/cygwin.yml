@@ -81,11 +81,8 @@
     dest: "{{ home_dir}}/.{{ item | basename }}"
     backup: yes
     mode: 0644
-  with_items:
-    - cygwin/bashrc
-    - cygwin/tmux-status-bar.conf
-    - cygwin/tmux.conf
-    - cygwin/inputrc
+  with_fileglob:
+    - cygwin/dots/*
 
 - name: cygwin | install apt-cyg
   get_url:

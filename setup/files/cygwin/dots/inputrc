@@ -46,19 +46,19 @@
 #set convert-meta off
 #set input-meta on
 #set output-meta on
-#$if Bash
+$if Bash
   # Don't ring bell on completion
-  #set bell-style none
+  set bell-style none
 
   # or, don't beep at me - show me
-  #set bell-style visible
+  set bell-style visible
 
   # Filename completion/expansion
   #set completion-ignore-case on
   #set show-all-if-ambiguous on
 
   # Expand homedir name
-  #set expand-tilde on
+  set expand-tilde on
 
   # Append "/" to all dirnames
   #set mark-directories on
@@ -71,7 +71,7 @@
   # Insert a space character then performs
   # a history expansion in the line
   #Space: magic-space
-#$endif
+$endif
 
 # Ctrl+Left/Right to move by whole words
 "\e[1;5C": forward-word
