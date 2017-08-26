@@ -17,7 +17,8 @@
     - wsl
 
 - include: dropbox.yml
-  when: ansible_virtualization_role == "host"
+  tags:
+    - dropbox
 
 - include: vpn.yml
   tags:
@@ -55,6 +56,7 @@
 
 - include: dotfiles.yml
   tags:
+    - dots
     - wsl
 
 - include: thinkpad.yml

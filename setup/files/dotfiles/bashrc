@@ -23,10 +23,6 @@ export HISTCONTROL=ignoredups:erasedups
 
 export EDITOR="vim"
 
-export GOPATH="$HOME/src/golang"
-export GOBIN="$GOPATH/bin"
-export PATH="$GOBIN:$PATH"
-
 # alias definitions.
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
