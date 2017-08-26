@@ -1,21 +1,19 @@
 ---
 - name: dropbox | increase watches
-  copy: >
-    src=60-fs-inotify-max_user_watches.conf
-    dest=/etc/sysctl.d/60-fs-inotify-max_user_watches.conf
+  copy:
+    src: 60-fs-inotify-max_user_watches.conf
+    dest: /etc/sysctl.d/60-fs-inotify-max_user_watches.conf
   notify: reload sysctl
-  tags: dropbox
   become: yes
 
 #
 # https://bugs.launchpad.net/ubuntu/+source/nautilus-dropbox/+bug/1546176
 #
 - name: dropbox | install
-  package: >
-    name={{ item }}
-    state=present
+  package:
+    name: "{{ item }}"
+    state: present
   with_items:
     - nautilus-dropbox
     - thunar-dropbox-plugin
-  tags: dropbox
   become: yes
