@@ -1,6 +1,8 @@
 " This file is managed by Ansible.
 " Do NOT modify this file directly.
 
+set nocompatible
+
 let mapleader=" "
 
 execute pathogen#infect()
@@ -81,4 +83,6 @@ au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
 au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
 au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
 
-let g:pymode_python = 'python3'
+"let g:pymode_python = 'python3'
+
+let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki'}]

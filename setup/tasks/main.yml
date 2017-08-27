@@ -34,6 +34,8 @@
 
 - include: editor.yml
   tags:
+    - vim
+    - editor
     - wsl
 
 # TODO fix url

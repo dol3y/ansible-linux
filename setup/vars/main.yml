@@ -71,6 +71,7 @@ vim_plugins:
   - git://github.com/tpope/vim-endwise.git
   - git://github.com/tpope/vim-sensible.git
   - git://github.com/tpope/vim-surround.git
+  - git://github.com/vimwiki/vimwiki.git
 
 pycharm_ver: 2017.1.5
 

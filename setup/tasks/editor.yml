@@ -3,7 +3,6 @@
   package: >
     name=vim-nox
     state=present
-  tags: vim
   become: yes
 
 - name: vim | update-alternatives
@@ -11,7 +10,6 @@
     name=editor
     path=/usr/bin/vim.nox
   when: ansible_distribution == "Ubuntu"
-  tags: vim
   become: yes
 
 - name: pathogen | prepare pathogen
@@ -23,7 +21,6 @@
     - "{{ vim_autoload }}"
     - "{{ vim_bundle }}"
   tags:
-    - vim
     - pathogen
     - cygwin
 
@@ -32,7 +29,6 @@
     url=https://tpo.pe/pathogen.vim
     dest={{ vim_autoload }}
   tags:
-    - vim
     - pathogen
     - cygwin
 
@@ -43,7 +39,6 @@
   with_items:
     - "{{ vim_plugins }}"
   tags:
-    - vim
     - pathogen
     - cygwin
     - skip_ansible_lint
