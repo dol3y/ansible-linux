@@ -28,3 +28,19 @@
   with_items:
     - config
     - i3blocks.conf
+
+- name: i3 | install xbacklight
+  package:
+    name: xbacklight
+    state: present
+  when: ansible_product_version == "ThinkPad T440"
+  become: yes
+
+# https://askubuntu.com/questions/762764/cant-change-brightness-in-ubuntu-16-04-lts
+- name: i3 | fix for xbacklight
+  copy:
+    src: 20-intel.conf
+    dest: /usr/share/X11/xorg.conf.d/20-intel.conf
+    mode: 0644
+  when: ansible_product_version == "ThinkPad T440"
+  become: yes
