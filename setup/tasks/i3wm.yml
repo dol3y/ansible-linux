@@ -27,7 +27,15 @@
     backup: yes
   with_items:
     - config
-    - i3blocks.conf
+
+- name: i3 | add i3blocks config
+  template:
+    src: i3/i3blocks.conf.j2
+    dest: "{{ home_dir }}/.config/i3/i3blocks.conf"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0644
+    backup: yes
 
 - name: i3 | install xbacklight
   package:

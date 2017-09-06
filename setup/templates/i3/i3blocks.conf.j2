@@ -10,6 +10,14 @@ interval=2
 [battery]
 label=
 interval=30
+instance=0
+
+{% if ansible_product_version == "ThinkPad T440" %}
+[battery]
+label=
+interval=30
+instance=1
+{% endif %}
 
 [time]
 command=date '+%d/%m/%y %H:%M'

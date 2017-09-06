@@ -195,9 +195,9 @@ bar {
 }
 
 # pulse audio
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 
 # screen brightness
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5%
@@ -208,5 +208,6 @@ bindsym $mod+Shift+x exec i3lock
 exec_always feh --bg-scale ~/Downloads/src/backgrounds/sea-1920×1080.jpg
 
 exec --no-startup-id dropbox start
+exec --no-startup-id nm-applet
 exec i3-sensible-terminal
 exec google-chrome
