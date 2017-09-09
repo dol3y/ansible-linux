@@ -19,23 +19,25 @@
 
 - name: i3 | add config
   copy:
-    src: "i3/{{ item }}"
-    dest: "{{ home_dir }}/.config/i3/{{ item }}"
+    src: "{{ item }}"
+    dest: "{{ home_dir }}/{{ item }}"
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: 0644
     backup: yes
   with_items:
-    - config
+    - .config/i3/config
 
 - name: i3 | add i3blocks config
   template:
-    src: i3/i3blocks.conf.j2
-    dest: "{{ home_dir }}/.config/i3/i3blocks.conf"
+    src: "{{ item }}.j2"
+    dest: "{{ home_dir }}/{{ item }}"
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: 0644
     backup: yes
+  with_items:
+    - .config/i3/i3blocks.conf
 
 - name: i3 | install xbacklight
   package:
@@ -47,8 +49,10 @@
 # https://askubuntu.com/questions/762764/cant-change-brightness-in-ubuntu-16-04-lts
 - name: i3 | fix for xbacklight
   copy:
-    src: 20-intel.conf
-    dest: /usr/share/X11/xorg.conf.d/20-intel.conf
+    src: "{{ item }}"
+    dest: "/{{ item }}"
     mode: 0644
+  with_items:
+    - usr/share/X11/xorg.conf.d/20-intel.conf
   when: ansible_product_version == "ThinkPad T440"
   become: yes

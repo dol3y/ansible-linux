@@ -82,7 +82,7 @@
     backup: yes
     mode: 0644
   with_fileglob:
-    - cygwin/dots/*
+    - dotfiles/cygwin/*
 
 - name: cygwin | install apt-cyg
   get_url:

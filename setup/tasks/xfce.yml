@@ -27,8 +27,10 @@
 
 - name: xfce | rc files
   copy:
-    dest: "{{ home_dir }}/.config/xfce4/terminal/terminalrc"
-    src: xfce/terminalrc
+    dest: "{{ home_dir }}/{{ item }}"
+    src: "{{ item }}"
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: 0664
+  with_items:
+    - .config/xfce4/terminal/terminalrc

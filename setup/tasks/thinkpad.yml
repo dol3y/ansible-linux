@@ -2,37 +2,37 @@
 ---
 # https://github.com/lwfinger/rtlwifi_new - still rubbish
 - name: thinkpad | realtek wifi config
-  copy: >
-    src=rtl8192ee.conf
-    dest=/etc/modprobe.d/rtl8192ee.conf
-  tags: realtek
+  copy:
+    src: "{{ item }}"
+    dest: "/{{ item }}"
+  with_items:
+    - etc/modprobe.d/rtl8192ee.conf
   become: yes
-  when: ansible_product_version == "ThinkPad T440"
+  tags: realtek
 
 # disable wifi
 - name: thinkpad | realtek wifi blacklist module
-  lineinfile: >
-    dest=/etc/modprobe.d/blacklist.conf
-    line='blacklist rtl8192ee'
-    backup=yes
-  tags: realtek
+  lineinfile:
+    dest: /etc/modprobe.d/blacklist.conf
+    line: 'blacklist rtl8192ee'
+    backup: yes
   become: yes
-  when: ansible_product_version == "ThinkPad T440"
+  tags: realtek
 
 - name: thinkpad | install uswsusp
-  package: >
-    name=uswsusp
-    state=present
-  tags: hibernate
+  package:
+    name: uswsusp
+    state: present
   become: yes
-  when: ansible_product_version == "ThinkPad T440"
+  tags: hibernate
 
 # https://ubuntuforums.org/showthread.php?t=2332834
 - name: thinkpad | enable hibernation
-  copy: >
-    src=com.ubuntu.enable-hibernate.pkla
-    dest=/etc/polkit-1/localauthority/50-local.d/com.ubuntu.enable-hibernate.pkla
-    backup=yes
-  tags: hibernate
+  copy:
+    src: "{{ item }}"
+    dest: "/{{ item }}"
+    backup: yes
+  with_items:
+    - etc/polkit-1/localauthority/50-local.d/com.ubuntu.enable-hibernate.pkla
   become: yes
-  when: ansible_product_version == "ThinkPad T440"
+  tags: hibernate

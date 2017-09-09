@@ -9,6 +9,8 @@
 
 - name: pycharm | update .desktop file
   template:
-    src: xfce/jetbrains-pycharm-ce.desktop.j2
-    dest: "{{ home_dir }}/.local/share/applications/jetbrains-pycharm-ce.desktop"
+    src: "{{ item }}.j2"
+    dest: "{{ home_dir }}/{{ item }}"
     mode: 0644
+  with_items:
+    - .local/share/applications/jetbrains-pycharm-ce.desktop

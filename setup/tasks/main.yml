@@ -62,6 +62,7 @@
     - wsl
 
 - include: thinkpad.yml
+  when: ansible_product_version == "ThinkPad T440"
   tags:
     - tp
 
