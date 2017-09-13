@@ -5,7 +5,6 @@
     state: present
   with_items:
     - "{{ binaries }}"
-  tags: binaries
   become: yes
 
 - name: binaries | unetbootin fix
@@ -14,7 +13,6 @@
     regexp: '^Exec'
     line: "Exec=/usr/bin/unetbootin -s"
     state: present
-  tags: binaries
   become: yes
 
 - name: binaries | python deps
@@ -24,7 +22,6 @@
   with_items:
     - "libssl-dev"
     - "libffi-dev"
-  tags: binaries
   become: yes
 
 - name: binaries | desktop goodies
@@ -33,7 +30,6 @@
     state: present
   with_items:
     - "pulseaudio-module-bluetooth"
-  tags: binaries
   become: yes
 
 - name: binaries | dkms
@@ -41,5 +37,4 @@
     name: dkms
     state: present
   when: ansible_virtualization_role == "guest"
-  tags: binaries
   become: yes
