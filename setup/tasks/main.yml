@@ -60,6 +60,7 @@
 - include: dotfiles.yml
   tags:
     - dots
+    - dotfiles
     - wsl
 
 - include: thinkpad.yml

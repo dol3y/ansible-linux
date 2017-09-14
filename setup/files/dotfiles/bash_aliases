@@ -6,6 +6,7 @@ function current_branch() {
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return
   echo ${ref#refs/heads/}
 }
+
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -35,13 +36,14 @@ alias grep='grep --color=auto'
 alias gss='git status -s'
 alias h='history'
 alias j='jobs -l'
+alias kp='kpci --kdb=~/Dropbox/personal/database.kdbx --readonly'
 alias mv='mv -i'
 alias tree='tree -C'
 alias vdest='vagrant destroy -f'
-alias vprov='vagrant provision'
-alias vssh='vagrant ssh'
 alias vhalt='vagrant halt'
+alias vprov='vagrant provision'
 alias vreload='vagrant reload'
+alias vssh='vagrant ssh'
 alias vup='vagrant up'
 alias wget='wget -c'
 
@@ -51,18 +53,8 @@ if ls --color &> /dev/null ; then
     alias ls='ls -GF --color=auto'
     alias ll='ls -alF --color=auto'
     alias la='ls -Ah --color=auto'
-else
-    # mac osx
-    alias l='ls -G -lF'
-    alias lr='ls -G -lr'
-    alias ls='ls -GF'
-    alias ll='ls -G -alF'
-    alias la='ls -G -Ah'
-    alias diff='colordiff'
-    alias sed='/usr/local/bin/gsed'
 fi
 
-# debian/ubuntu specific
 if [ -e /etc/debian_version ]; then
   # force 256 colours
   alias tmux='tmux -2'
