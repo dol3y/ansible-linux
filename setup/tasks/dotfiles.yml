@@ -19,6 +19,6 @@
 
 - name: dotfiles | tmux battery
   copy:
-    src: battery.py
+    src: scripts/battery.py
     dest: "{{ my_bin }}/battery"
     mode: 0755
