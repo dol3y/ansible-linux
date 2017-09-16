@@ -17,6 +17,13 @@
     - numix-icon-theme-circle
   become: yes
 
+- name: xfce | set nm icons correctly in i3 panel
+  lineinfile:
+    dest: /usr/share/icons/Numix/index.theme
+    regexp: '^Inherits=gnome,hicolor'
+    line: 'Inherits=elementary-xfce,gnome,hicolor'
+  become: yes
+
 - name: xfce | local dirs
   file:
     name: "{{ home_dir }}/.config/xfce4/terminal"
