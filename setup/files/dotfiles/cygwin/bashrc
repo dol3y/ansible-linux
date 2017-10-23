@@ -34,3 +34,10 @@ cyan='\e[0;36m'
 white='\e[0;37m'
 
 PS1="\[$green\]\u@\h\[\e[m\]:\[$cyan\]\W\[\e[m\]\[$red\]\[\e[m\]\n\$ "
+
+# kpcli - perl libs setup
+PATH="/home/adolby/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/adolby/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/adolby/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/adolby/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/adolby/perl5"; export PERL_MM_OPT;
