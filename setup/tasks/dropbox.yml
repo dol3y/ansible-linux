@@ -1,7 +1,7 @@
 ---
 - name: dropbox | increase watches
   copy:
-    src: 60-fs-inotify-max_user_watches.conf
+    src: etc/sysctl.d/60-fs-inotify-max_user_watches.conf
     dest: /etc/sysctl.d/60-fs-inotify-max_user_watches.conf
   notify: reload sysctl
   become: yes
