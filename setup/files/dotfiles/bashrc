@@ -95,3 +95,8 @@ if which pyenv &> /dev/null; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
+
+if [ $XDG_CURRENT_DESKTOP == 'i3' ]; then
+    keychainctl start
+    source "$HOME/.keychain/$(hostname -s)-sh"
+fi

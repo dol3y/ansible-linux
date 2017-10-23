@@ -22,3 +22,9 @@
     src: scripts/battery.py
     dest: "{{ my_bin }}/battery"
     mode: 0755
+
+#- name: dotfiles | tmux keychainctl
+#  copy:
+#    src: scripts/keychainctl.sh
+#    dest: "{{ my_bin }}/keychainctl"
+#    mode: 0755
