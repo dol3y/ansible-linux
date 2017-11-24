@@ -83,3 +83,7 @@
 - include: chrome.yml
   tags:
     - chrome
+
+- include: keepassxc.yml
+  tags:
+    - kpxc
