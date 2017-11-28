@@ -22,9 +22,7 @@ binaries:
   - iptraf
   - irssi
   - jq
-  - keepassx
   - keychain
-  - kpcli
   - links2
   - mtr
   - mutt
