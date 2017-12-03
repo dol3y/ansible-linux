@@ -96,6 +96,10 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# switch workspace
+bindsym Control+Mod1+Left workspace prev
+bindsym Control+Mod1+Right workspace next
+
 set $workspace1 "1: "
 set $workspace2 "2: "
 set $workspace3 "3: "
