@@ -143,6 +143,8 @@ for_window [class="^.*jetbrains-pycharm.*$"] floating enable
 for_window [class="Remmina"] floating enable
 for_window [class="Slack"] floating enable
 for_window [class="VirtualBox"] floating enable
+for_window [class="Firefox"] floating enable
+for_window [class="Google-chrome"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
