@@ -61,7 +61,6 @@ vim_plugins:
   - git://github.com/airblade/vim-gitgutter.git
   - git://github.com/altercation/vim-colors-solarized.git
   - git://github.com/bronson/vim-trailing-whitespace.git
-  - git://github.com/chase/vim-ansible-yaml.git
   - git://github.com/edkolev/tmuxline.vim.git
   - git://github.com/elzr/vim-json.git
   - git://github.com/fatih/vim-go.git
