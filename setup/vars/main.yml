@@ -67,6 +67,7 @@ vim_plugins:
   - git://github.com/fatih/vim-go.git
   - git://github.com/hashivim/vim-terraform.git
   - git://github.com/itchyny/lightline.vim.git
+  - git://github.com/pearofducks/ansible-vim.git
   - git://github.com/tpope/vim-endwise.git
   - git://github.com/tpope/vim-sensible.git
   - git://github.com/tpope/vim-surround.git
