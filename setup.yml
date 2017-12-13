@@ -2,4 +2,5 @@
 - hosts: localhost
   connection: local
   roles:
-    - main
+    - { role: main, tags: 'main' }
+    - { role: ansible-go, become: yes, tags: 'golang' }
