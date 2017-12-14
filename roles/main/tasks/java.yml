@@ -1,25 +1,25 @@
 ---
 - name: java | install webupd8 ppa
-  apt_repository: >
-    repo="ppa:webupd8team/java"
-    update_cache=yes
-    state=present
+  apt_repository:
+    repo: "ppa:webupd8team/java"
+    update_cache: yes
+    state: present
   tags: java
   become: yes
 
 - name: java | accept license
-  debconf: >
-    name=oracle-java8-installer
-    question=shared/accepted-oracle-license-v1-1
-    value=true
-    vtype=select
+  debconf:
+    name: oracle-java8-installer
+    question: shared/accepted-oracle-license-v1-1
+    value: true
+    vtype: select
   tags: java
   become: yes
 
 - name: java | install java 8
-  apt: >
-    name={{ item }}
-    state=present
+  apt:
+    name: "{{ item }}"
+    state: present
   with_items:
     - oracle-java8-installer
     - oracle-java8-set-default
@@ -28,16 +28,16 @@
   become: yes
 
 - name: java | firefox plugins dir
-  file: >
-    name=/usr/lib/firefox-addons/plugins
-    state=directory
+  file:
+    name: /usr/lib/firefox-addons/plugins
+    state: directory
   tags: java
   become: yes
 
 - name: java | firefox java plugin
-  file: >
-    name=/usr/lib/firefox-addons/plugins/libnpjp2.so
-    src=/usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnpjp2.so
-    state=link
+  file:
+    name: /usr/lib/firefox-addons/plugins/libnpjp2.so
+    src: /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnpjp2.so
+    state: link
   tags: java
   become: yes

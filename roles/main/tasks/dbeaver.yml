@@ -1,6 +1,6 @@
 ---
 - name: dbeaver | install
-  apt: >
-    deb=http://dbeaver.jkiss.org/files/dbeaver-ce_latest_amd64.deb
+  apt:
+    deb: http://dbeaver.jkiss.org/files/dbeaver-ce_latest_amd64.deb
   tags: dbeaver
   become: yes

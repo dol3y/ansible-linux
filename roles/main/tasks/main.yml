@@ -39,7 +39,7 @@
     - editor
     - wsl
 
-# TODO fix url
+# TODO: fix url
 #- include: insomnia.yml
 #  when: ansible_virtualization_role == "host"
 
@@ -47,7 +47,7 @@
   tags:
     - pycharm
 
-# TODO fix url
+# TODO: fix url
 #- include: dbeaver.yml
 #  when: ansible_virtualization_role == "host"
 

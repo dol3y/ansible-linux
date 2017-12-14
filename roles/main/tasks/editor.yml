@@ -1,22 +1,22 @@
 ---
 - name: vim | vim-nox
-  package: >
-    name=vim-nox
-    state=present
+  package:
+    name: vim-nox
+    state: present
   become: yes
 
 - name: vim | update-alternatives
-  alternatives: >
-    name=editor
-    path=/usr/bin/vim.nox
+  alternatives:
+    name: editor
+    path: /usr/bin/vim.nox
   when: ansible_distribution == "Ubuntu"
   become: yes
 
 - name: pathogen | prepare pathogen
-  file: >
-    path={{ item }}
-    state=directory
-    recurse=yes
+  file:
+    path: "{{ item }}"
+    state: directory
+    recurse: yes
   with_items:
     - "{{ vim_autoload }}"
     - "{{ vim_bundle }}"
@@ -25,17 +25,17 @@
     - cygwin
 
 - name: pathogen | infect
-  get_url: >
-    url=https://tpo.pe/pathogen.vim
-    dest={{ vim_autoload }}
+  get_url:
+    url: https://tpo.pe/pathogen.vim
+    dest: "{{ vim_autoload }}"
   tags:
     - pathogen
     - cygwin
 
 - name: pathogen | install vim plugins
-  git: >
-    repo={{ item }}
-    dest={{ vim_bundle }}/{{ item | basename | replace('.git', '') }}
+  git:
+    repo: "{{ item }}"
+    dest: "{{ vim_bundle }}/{{ item | basename | replace('.git', '') }}"
   with_items:
     - "{{ vim_plugins }}"
   tags:

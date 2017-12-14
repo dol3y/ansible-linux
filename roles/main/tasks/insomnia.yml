@@ -1,14 +1,14 @@
 ---
 - name: insomnia | install
-  apt: >
-    deb=https://downloads.insomnia.rest/linux/insomnia_4.2.14_amd64.deb
+  apt:
+    deb: https://downloads.insomnia.rest/linux/insomnia_4.2.14_amd64.deb
   tags: insomnia
   become: yes
 
 - name: insomnia | update .desktop file
-  lineinfile: >
-    dest=/usr/share/applications/Insomnia.desktop
-    line=Categories=Development;
-    state=present
+  lineinfile:
+    dest: /usr/share/applications/Insomnia.desktop
+    line: Categories=Development;
+    state: present
   tags: insomnia
   become: yes
