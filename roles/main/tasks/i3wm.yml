@@ -58,6 +58,14 @@
   when: ansible_product_version == "ThinkPad T440"
   become: yes
 
+- name: i3 | gtk-3.0 dir
+  file:
+    dest: "{{ home_dir }}/.config/gtk-3.0"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0700
+    state: directory
+
 - name: i3 | add gtk theme
   copy:
     src: "{{ item }}"

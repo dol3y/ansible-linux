@@ -7,6 +7,15 @@
     creates: "/opt/pycharm-community-{{ pycharm_ver }}/bin/pycharm.sh"
   become: yes
 
+- name: pycharm | applications dir
+  file:
+    dest: "{{ home_dir }}/.local/share/applications"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0700
+    recurse: yes
+    state: directory
+
 - name: pycharm | update .desktop file
   template:
     src: "{{ item }}.j2"
