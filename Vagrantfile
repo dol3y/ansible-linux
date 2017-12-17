@@ -23,6 +23,6 @@ Vagrant.configure("2") do |config|
     ansible.verbose = true
     ansible.inventory_path = "inventory"
     ansible.limit = "all"
-    #ansible.tags = "xfce"
+    #ansible.tags = "i3"
   end
 end
