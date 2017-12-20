@@ -144,6 +144,7 @@ for_window [class="^.*jetbrains-pycharm.*$"] floating enable
 for_window [class="Remmina"] floating enable
 for_window [class="Slack"] floating enable
 for_window [class="VirtualBox"] floating enable
+for_window [class="Code"] border pixel 1
 for_window [window_role="pop-up"] floating enable
 
 # reload the configuration file
