@@ -220,7 +220,7 @@ bar {
 #bindsym XF86MonBrightnessUp exec xbacklight -inc 5%
 #bindsym XF86MonBrightnessDown exec xbacklight -dec 5%
 
-bindsym $mod+Shift+x exec i3lock
+bindsym $mod+Shift+x exec i3lock -c 202530
 
 exec_always feh --bg-scale ~/Dropbox/src/backgrounds/o8qd328.jpg
 
