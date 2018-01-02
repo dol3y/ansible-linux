@@ -101,9 +101,9 @@ bindsym Control+Mod1+Left workspace prev
 bindsym Control+Mod1+Right workspace next
 
 set $workspace1 "1: "
-set $workspace2 "2: "
-set $workspace3 "3: "
-set $workspace4 "4: "
+set $workspace2 "2: "
+set $workspace3 "3: "
+set $workspace4 "4: "
 set $workspace5 "5: "
 set $workspace6 "6: "
 set $workspace7 "7: "
@@ -132,10 +132,10 @@ bindsym $mod+Shift+7 move container to workspace $workspace7
 bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 
-assign [class="Google-chrome"] $workspace2
-assign [class="Slack"] $workspace3
-assign [class="^.*jetbrains-pycharm.*$"] $workspace4
-assign [class="Code"] $workspace4
+assign [class="Google-chrome"] $workspace3
+assign [class="Slack"] $workspace4
+assign [class="^.*jetbrains-pycharm.*$"] $workspace2
+assign [class="Code"] $workspace2
 assign [class="Firefox"] $workspace5
 assign [class="Remmina"] $workspace6
 assign [class="keepassxc"] $workspace7
