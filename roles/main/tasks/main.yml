@@ -51,9 +51,9 @@
   tags:
     - vscode
 
-# TODO: fix url
-#- include: dbeaver.yml
-#  when: ansible_virtualization_role == "host"
+- include: dbeaver.yml
+  tags:
+    - dbeaver
 
 - include: fonts.yml
   tags:
