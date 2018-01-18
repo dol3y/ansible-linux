@@ -43,9 +43,13 @@
 #- include: insomnia.yml
 #  when: ansible_virtualization_role == "host"
 
-- include: pycharm.yml
+#- include: pycharm.yml
+#  tags:
+#    - pycharm
+
+- include: vscode.yml
   tags:
-    - pycharm
+    - vscode
 
 # TODO: fix url
 #- include: dbeaver.yml

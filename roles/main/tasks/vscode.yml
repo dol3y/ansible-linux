@@ -1,0 +1,12 @@
+---
+# TODO install dep package here
+
+- name: vscode | install json config
+  copy:
+    src: "{{ item }}"
+    dest: "{{ home_dir}}/{{ item }}"
+    mode: 0664
+    backup: yes
+  with_items:
+    - .config/Code/User/keybindings.json
+    - .config/Code/User/settings.json
