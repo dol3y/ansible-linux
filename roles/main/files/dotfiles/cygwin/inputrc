@@ -41,6 +41,10 @@
 "\eOH": beginning-of-line
 "\eOF": end-of-line
 
+# urxvt
+"\eOc": forward-word
+"\eOd": backward-word
+
 # Allow 8-bit input/output
 #set meta-flag on
 #set convert-meta off
