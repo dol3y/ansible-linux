@@ -1,93 +1,93 @@
 ---
-- include: cygwin.yml
+- include_tasks: cygwin.yml
   when: ansible_os_family == "CYGWIN_NT-6.1"
   tags:
     - cygwin
 
-- include: sudo.yml
+- include_tasks: sudo.yml
   tags:
     - wsl
 
-- include: ansible_hosts.yml
+- include_tasks: ansible_hosts.yml
   tags:
     - wsl
 
-- include: binaries.yml
+- include_tasks: binaries.yml
   tags:
     - binaries
     - wsl
 
-- include: dropbox.yml
+- include_tasks: dropbox.yml
   tags:
     - dropbox
 
-- include: vpn.yml
+- include_tasks: vpn.yml
   tags:
     - vpn
 
-- include: docker.yml
+- include_tasks: docker.yml
 
-- include: java.yml
+- include_tasks: java.yml
 
-- include: i3wm.yml
+- include_tasks: i3wm.yml
   tags:
     - i3
 
-- include: editor.yml
+- include_tasks: editor.yml
   tags:
     - vim
     - editor
     - wsl
 
 # TODO: fix url
-#- include: insomnia.yml
+#- include_tasks: insomnia.yml
 #  when: ansible_virtualization_role == "host"
 
-#- include: pycharm.yml
+#- include_tasks: pycharm.yml
 #  tags:
 #    - pycharm
 
-- include: vscode.yml
+- include_tasks: vscode.yml
   tags:
     - vscode
 
-- include: dbeaver.yml
+- include_tasks: dbeaver.yml
   tags:
     - dbeaver
 
-- include: fonts.yml
+- include_tasks: fonts.yml
   tags:
     - fonts
     - wsl
     - i3
 
-- include: dotfiles.yml
+- include_tasks: dotfiles.yml
   tags:
     - dots
     - dotfiles
     - wsl
 
-- include: thinkpad.yml
+- include_tasks: thinkpad.yml
   when: ansible_product_version == "ThinkPad T440"
   tags:
     - tp
 
-- include: xfce.yml
+- include_tasks: xfce.yml
   tags:
     - xfce
 
-- include: lollypop.yml
+- include_tasks: lollypop.yml
   tags:
     - lollypop
 
-- include: pyenv.yml
+- include_tasks: pyenv.yml
   tags:
     - pyenv
 
-- include: chrome.yml
+- include_tasks: chrome.yml
   tags:
     - chrome
 
-- include: keepassxc.yml
+- include_tasks: keepassxc.yml
   tags:
     - kpxc
