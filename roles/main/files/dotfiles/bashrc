@@ -75,7 +75,7 @@ if [ -e /etc/debian_version ]; then
   fi
 fi
 
-export PATH
+export PATH="$HOME/bin:$PATH"
 
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
@@ -97,6 +97,6 @@ if which pyenv &> /dev/null; then
 fi
 
 if [ $XDG_CURRENT_DESKTOP == 'i3' ]; then
-    keychainctl start
+    "$HOME/bin/keychainctl" start
     source "$HOME/.keychain/$(hostname -s)-sh"
 fi
