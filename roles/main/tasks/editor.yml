@@ -3,13 +3,16 @@
   package:
     name: vim-nox
     state: present
+  when:
+    - ansible_os_family == "Debian"
   become: yes
 
 - name: vim | update-alternatives
   alternatives:
     name: editor
     path: /usr/bin/vim.nox
-  when: ansible_distribution == "Ubuntu"
+  when:
+    - ansible_os_family == "Debian"
   become: yes
 
 - name: pathogen | prepare pathogen

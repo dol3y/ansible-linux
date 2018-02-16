@@ -1,93 +1,141 @@
 ---
 - include_tasks: cygwin.yml
-  when: ansible_os_family == "CYGWIN_NT-6.1"
+  when:
+    - ansible_os_family == "CYGWIN_NT-6.1"
   tags:
     - cygwin
 
 - include_tasks: sudo.yml
+  when:
+    - ansible_os_family == "Debian"
   tags:
     - wsl
 
 - include_tasks: ansible_hosts.yml
+  when:
+    - ansible_os_family == "Debian"
   tags:
     - wsl
 
 - include_tasks: binaries.yml
+  when:
+    - ansible_os_family == "Debian"
   tags:
     - binaries
     - wsl
 
 - include_tasks: dropbox.yml
+  when:
+    - ansible_os_family == "Debian"
   tags:
     - dropbox
 
 - include_tasks: vpn.yml
+  when:
+    - ansible_os_family == "Debian"
   tags:
     - vpn
 
 - include_tasks: docker.yml
+  when:
+    - ansible_os_family == "Debian"
+  tags:
+    - docker
 
 - include_tasks: java.yml
+  when:
+    - ansible_os_family == "Debian"
+  tags:
+    - java
 
 - include_tasks: i3wm.yml
+  when:
+    - ansible_os_family == "Debian"
   tags:
     - i3
 
 - include_tasks: editor.yml
+  when:
+    - ansible_os_family == "Debian"
   tags:
     - vim
     - editor
     - wsl
 
-# TODO: fix url
 #- include_tasks: insomnia.yml
-#  when: ansible_virtualization_role == "host"
+#  when:
+#    - ansible_os_family == "Debian"
+#  tags:
+#    - insomnia
 
-#- include_tasks: pycharm.yml
+#- include: pycharm.yml
+#  when:
+#    - ansible_os_family == "Debian"
 #  tags:
 #    - pycharm
 
 - include_tasks: vscode.yml
+  when:
+    - ansible_os_family == "Debian"
   tags:
     - vscode
 
 - include_tasks: dbeaver.yml
+  when:
+    - ansible_os_family == "Debian"
   tags:
     - dbeaver
 
 - include_tasks: fonts.yml
+  when:
+    - ansible_os_family == "Debian"
   tags:
     - fonts
     - wsl
     - i3
 
 - include_tasks: dotfiles.yml
+  when:
+    - ansible_os_family == "Debian"
   tags:
     - dots
     - dotfiles
     - wsl
 
 - include_tasks: thinkpad.yml
-  when: ansible_product_version == "ThinkPad T440"
+  when:
+    - ansible_product_version == "ThinkPad T440"
+    - ansible_os_family == "Debian"
   tags:
     - tp
 
 - include_tasks: xfce.yml
+  when:
+    - ansible_os_family == "Debian"
   tags:
     - xfce
 
 - include_tasks: lollypop.yml
+  when:
+    - ansible_os_family == "Debian"
   tags:
     - lollypop
 
 - include_tasks: pyenv.yml
+  when:
+    - ansible_os_family == "Debian"
   tags:
     - pyenv
 
 - include_tasks: chrome.yml
+  when:
+    - ansible_os_family == "Debian"
   tags:
     - chrome
 
 - include_tasks: keepassxc.yml
+  when:
+    - ansible_os_family == "Debian"
   tags:
     - kpxc
+
