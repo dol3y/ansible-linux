@@ -46,3 +46,11 @@
   with_fileglob:
     - /opt/fonts/YosemiteSanFranciscoFont-master/*.ttf
   become: yes
+
+- name: fonts | inconsolata
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - fonts-inconsolata
+  become: yes
