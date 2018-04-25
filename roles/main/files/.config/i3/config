@@ -222,7 +222,7 @@ bar {
 
 bindsym $mod+Shift+x exec i3lock -c 202530
 
-exec_always feh --bg-scale ~/Dropbox/src/backgrounds/o8qd328.jpg
+exec_always feh --bg-scale ~/Dropbox/src/backgrounds/material-design-4k-1920x1080.jpg
 
 exec --no-startup-id xfsettingsd
 exec --no-startup-id xfce4-volumed
