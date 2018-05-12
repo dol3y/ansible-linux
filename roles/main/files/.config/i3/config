@@ -142,7 +142,7 @@ assign [class="keepassxc"] $workspace7
 
 for_window [class="^.*jetbrains-pycharm.*$"] floating enable
 for_window [class="Remmina"] floating enable
-for_window [class="Slack"] floating enable
+#for_window [class="Slack"] floating enable
 for_window [class="VirtualBox"] floating enable
 for_window [class="Code"] border pixel 1
 for_window [window_role="pop-up"] floating enable
@@ -153,6 +153,12 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+bindsym $mod+Mod1+f exec thunar
+bindsym $mod+Mod1+s exec slack
+bindsym $mod+Mod1+c exec code
+bindsym $mod+Mod1+k exec keepassxc
+bindsym $mod+Mod1+w exec google-chrome
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -229,6 +235,6 @@ exec --no-startup-id xfce4-volumed
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id dropbox start
 exec --no-startup-id nm-applet
-exec i3-sensible-terminal
-exec google-chrome
-exec keepassxc
+#exec i3-sensible-terminal
+#exec google-chrome
+#exec keepassxc
