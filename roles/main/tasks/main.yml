@@ -1,10 +1,4 @@
 ---
-- include_tasks: cygwin.yml
-  when:
-    - ansible_os_family == "CYGWIN_NT-6.1"
-  tags:
-    - cygwin
-
 - include_tasks: sudo.yml
   when:
     - ansible_os_family == "Debian"
