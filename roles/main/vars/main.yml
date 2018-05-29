@@ -24,13 +24,15 @@ binaries:
   - jq
   - keychain
   - links2
+  - mpd
   - mtr
   - mutt
+  - ncmpcpp
   - ngrep
   - nmap
-  - parallel
   - p7zip-full
   - p7zip-rar
+  - parallel
   - pv
   - remmina
   - screen
