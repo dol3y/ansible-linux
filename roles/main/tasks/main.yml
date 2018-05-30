@@ -11,6 +11,12 @@
   tags:
     - wsl
 
+- include_tasks: netboot.yml
+  when:
+    - ansible_os_family == "Debian"
+  tags:
+    - binaries
+
 - include_tasks: binaries.yml
   when:
     - ansible_os_family == "Debian"

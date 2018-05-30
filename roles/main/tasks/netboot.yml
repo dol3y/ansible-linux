@@ -1,0 +1,18 @@
+---
+- name: netboot | initial packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - intel-microcode
+    - lightdm
+    - lightdm-gtk-greeter
+    - lightdm-gtk-greeter-settings
+    - i3
+    - ubuntu-drivers-common
+    - thunar
+    - rxvt-unicode
+    - build-essential
+    - dkms
+    - x11-xserver-utils
+  become: yes
