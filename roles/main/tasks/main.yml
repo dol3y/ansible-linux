@@ -2,27 +2,18 @@
 - include_tasks: sudo.yml
   when:
     - ansible_os_family == "Debian"
-  tags:
-    - wsl
 
 - include_tasks: ansible_hosts.yml
   when:
     - ansible_os_family == "Debian"
-  tags:
-    - wsl
 
 - include_tasks: netboot.yml
   when:
     - ansible_os_family == "Debian"
-  tags:
-    - binaries
 
 - include_tasks: binaries.yml
   when:
     - ansible_os_family == "Debian"
-  tags:
-    - binaries
-    - wsl
 
 - include_tasks: dropbox.yml
   when:

@@ -4,7 +4,7 @@ name = "pypi"
 url = "https://pypi.org/simple"
 
 [requires]
-python_version = "3.5"
+python_version = "3.6"
 
 [packages]
 pyopenssl = "==17.5.0"
@@ -16,3 +16,4 @@ six = "*"
 ansible = "*"
 
 [dev-packages]
+ansible-lint = "*"

@@ -1,18 +1,27 @@
 ---
-- name: netboot | initial packages
-  package:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - intel-microcode
-    - lightdm
-    - lightdm-gtk-greeter
-    - lightdm-gtk-greeter-settings
-    - i3
-    - ubuntu-drivers-common
-    - thunar
-    - rxvt-unicode
-    - build-essential
-    - dkms
-    - x11-xserver-utils
-  become: yes
+- block:
+  - name: netboot | initial packages
+    package:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - intel-microcode
+      - lightdm
+      - lightdm-gtk-greeter
+      - lightdm-gtk-greeter-settings
+      - i3
+      - ubuntu-drivers-common
+      - thunar
+      - rxvt-unicode
+      - build-essential
+      - x11-xserver-utils
+    become: yes
+
+  - name: netboot | dkms
+    package:
+      name: dkms
+      state: present
+    when: ansible_virtualization_role == "guest"
+    become: yes
+  tags:
+    - binaries

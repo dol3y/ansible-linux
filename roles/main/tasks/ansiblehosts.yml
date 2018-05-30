@@ -1,0 +1,18 @@
+---
+- block:
+  - name: ansiblehosts | /etc/ansible
+    file:
+      path: /etc/ansible
+      mode: 0755
+      state: directory
+    tags: ansible-hosts
+    become: yes
+
+  - name: ansiblehosts | local connection
+    copy:
+      content: "localhost ansible_connection: local"
+      dest: /etc/ansible/hosts
+    tags: ansible-hosts
+    become: yes
+  tags:
+    - ansiblehosts
