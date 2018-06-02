@@ -20,6 +20,12 @@
       state: present
     become: yes
 
+  - name: vscode | user dir
+    file:
+      dest: "{{ home_dir }}/.config/Code/User"
+      recurse: yes
+      state: directory
+
   - name: vscode | install json config
     copy:
       src: "{{ item }}"
