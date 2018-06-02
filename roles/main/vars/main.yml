@@ -41,7 +41,7 @@ binaries:
   - tig
   - tmux
   - tree
-  - unetbootin
+#  - unetbootin
   - unrar
   - unzip
   - uptimed

@@ -30,63 +30,40 @@
     - dots
     - dotfiles
 
-- include_tasks: dropbox.yml
-  tags:
-    - dropbox
-
-- include_tasks: vpn.yml
-  tags:
-    - vpn
-
-- include_tasks: docker.yml
-  tags:
-    - docker
-
-- include_tasks: java.yml
-  when:
-    - ansible_os_family == "Debian"
-  tags:
-    - java
+#- include_tasks: dropbox.yml
+#  tags:
+#    - dropbox
+#
+#- include_tasks: vpn.yml
+#  tags:
+#    - vpn
+#
+#- include_tasks: docker.yml
+#  tags:
+#    - docker
+#
+#- include_tasks: java.yml
+#  tags:
+#    - java
 
 - include_tasks: vscode.yml
-  when:
-    - ansible_os_family == "Debian"
   tags:
     - vscode
 
-- include_tasks: dbeaver.yml
-  when:
-    - ansible_os_family == "Debian"
-  tags:
-    - dbeaver
+#- include_tasks: dbeaver.yml
+#  tags:
+#    - dbeaver
 
 - include_tasks: fonts.yml
   tags:
     - fonts
     - i3
 
-- include_tasks: thinkpad.yml
-  when:
-    - ansible_product_version == "ThinkPad T440"
-    - ansible_os_family == "Debian"
-  tags:
-    - tp
-
-- include_tasks: pyenv.yml
-  when:
-    - ansible_os_family == "Debian"
-  tags:
-    - pyenv
-
 - include_tasks: chrome.yml
-  when:
-    - ansible_os_family == "Debian"
   tags:
     - chrome
 
 - include_tasks: keepassxc.yml
-  when:
-    - ansible_os_family == "Debian"
   tags:
     - kpxc
 

@@ -8,13 +8,13 @@
       - "{{ binaries }}"
     become: yes
 
-  - name: binaries | unetbootin fix
-    lineinfile:
-      dest: /usr/share/applications/unetbootin.desktop
-      regexp: '^Exec'
-      line: "Exec=/usr/bin/unetbootin -s"
-      state: present
-    become: yes
+#  - name: binaries | unetbootin fix
+#    lineinfile:
+#      dest: /usr/share/applications/unetbootin.desktop
+#      regexp: '^Exec'
+#      line: "Exec=/usr/bin/unetbootin -s"
+#      state: present
+#    become: yes
 
   - name: binaries | python deps
     package:

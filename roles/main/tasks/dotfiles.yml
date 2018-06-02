@@ -18,17 +18,13 @@
       with_fileglob:
         - .*
 
-    - name: dotfiles | tmux battery
+    - name: dotfiles | scripts
       copy:
-        src: scripts/battery.py
-        dest: "{{ my_bin }}/battery"
-        mode: 0755
-
-    #- name: dotfiles | tmux keychainctl
-    #  copy:
-    #    src: scripts/keychainctl.sh
-    #    dest: "{{ my_bin }}/keychainctl"
-    #    mode: 0755
+        src: "{{ item }}"
+        dest: "{{ my_bin }}/{{ item | basename }}"
+        mode: 0754
+      with_fileglob:
+        - scripts/*
   tags:
     - dotfiles
     - dots
