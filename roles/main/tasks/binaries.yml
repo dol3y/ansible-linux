@@ -1,6 +1,6 @@
 ---
 - block:
-  - name: binaries | standard utils
+  - name: binaries | utils
     package:
       name: "{{ item }}"
       state: present
@@ -16,21 +16,5 @@
 #      state: present
 #    become: yes
 
-  - name: binaries | python deps
-    package:
-      name: "{{ item }}"
-      state: present
-    with_items:
-      - libssl-dev
-      - libffi-dev
-    become: yes
-
-  - name: binaries | desktop goodies
-    package:
-      name: "{{ item }}"
-      state: present
-    with_items:
-      - pulseaudio-module-bluetooth
-    become: yes
   tags:
     - binaries

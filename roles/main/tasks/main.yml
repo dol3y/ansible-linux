@@ -7,7 +7,7 @@
   tags:
     - ansiblehosts
 
-- include_tasks: netboot.yml
+- include_tasks: base.yml
   tags:
     - binaries
 
