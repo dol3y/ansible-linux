@@ -1,57 +1,56 @@
 ---
-- name: vim | vim-nox
-  package:
-    name: vim-nox
-    state: present
-  when:
-    - ansible_os_family == "Debian"
-  become: yes
+- block:
+  - name: vim | vim-nox
+    package:
+      name: vim-nox
+      state: present
+    when:
+      - ansible_os_family == "Debian"
+    become: yes
 
-- name: vim | update-alternatives
-  alternatives:
-    name: editor
-    path: /usr/bin/vim.nox
-  when:
-    - ansible_os_family == "Debian"
-  become: yes
+  - name: vim | update-alternatives
+    alternatives:
+      name: editor
+      path: /usr/bin/vim.nox
+    when:
+      - ansible_os_family == "Debian"
+    become: yes
 
-- name: pathogen | prepare pathogen
-  file:
-    path: "{{ item }}"
-    state: directory
-    recurse: yes
-  with_items:
-    - "{{ vim_autoload }}"
-    - "{{ vim_bundle }}"
+  - name: pathogen | prepare pathogen
+    file:
+      path: "{{ item }}"
+      state: directory
+      recurse: yes
+    with_items:
+      - "{{ vim_autoload }}"
+      - "{{ vim_bundle }}"
+    tags:
+      - pathogen
+
+  - name: pathogen | infect
+    get_url:
+      url: https://tpo.pe/pathogen.vim
+      dest: "{{ vim_autoload }}"
+    tags:
+      - pathogen
+
+  - name: pathogen | install vim plugins
+    git:
+      repo: "{{ item }}"
+      dest: "{{ vim_bundle }}/{{ item | basename | replace('.git', '') }}"
+    with_items:
+      - "{{ vim_plugins }}"
+    tags:
+      - pathogen
+      - skip_ansible_lint
+
+  - name: vim | vimrc
+    copy:
+      src: "{{ item }}"
+      dest: "{{ home_dir}}/{{ item | basename }}"
+      backup: yes
+    with_items:
+      - .vimrc
   tags:
-    - pathogen
-    - cygwin
-
-- name: pathogen | infect
-  get_url:
-    url: https://tpo.pe/pathogen.vim
-    dest: "{{ vim_autoload }}"
-  tags:
-    - pathogen
-    - cygwin
-
-- name: pathogen | install vim plugins
-  git:
-    repo: "{{ item }}"
-    dest: "{{ vim_bundle }}/{{ item | basename | replace('.git', '') }}"
-  with_items:
-    - "{{ vim_plugins }}"
-  tags:
-    - pathogen
-    - cygwin
-    - skip_ansible_lint
-
-- name: vim | vimrc
-  copy:
-    src: "{{ item }}"
-    dest: "{{ home_dir}}/.{{ item | basename }}"
-    backup: yes
-  with_items:
-    - dotfiles/vimrc
-  tags:
-    - cygwin
+    - vim
+    - editor

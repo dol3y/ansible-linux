@@ -13,10 +13,10 @@
     - name: dotfiles | install .*
       copy:
         src: "{{ item }}"
-        dest: "{{ home_dir}}/.{{ item | basename }}"
+        dest: "{{ home_dir}}/{{ item | basename }}"
         backup: yes
       with_fileglob:
-        - dotfiles/*
+        - .*
 
     - name: dotfiles | tmux battery
       copy:
