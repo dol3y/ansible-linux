@@ -1,53 +1,42 @@
 ---
-- name: docker | install python-apt
-  pip:
-    name: python-apt
-    state: present
-  tags: docker
-  become: yes
+- block:
+  - name: docker | add key
+    apt_key:
+      keyserver: hkp://p80.pool.sks-keyservers.net:80
+      id: 58118E89F3A912897C070ADBF76221572C52609D
+    become: yes
 
-- name: docker | add key
-  apt_key:
-    keyserver: hkp://p80.pool.sks-keyservers.net:80
-    id: 58118E89F3A912897C070ADBF76221572C52609D
-  tags: docker
-  become: yes
+  - name: docker | install docker repo
+    apt_repository:
+      filename: docker
+      repo: "deb https://apt.dockerproject.org/repo ubuntu-xenial main"
+      update_cache: yes
+      state: present
+    become: yes
 
-- name: docker | install docker repo
-  apt_repository:
-    filename: docker
-    repo: "deb https://apt.dockerproject.org/repo ubuntu-xenial main"
-    update_cache: yes
-    state: present
-  tags: docker
-  become: yes
+  - name: docker | install docker
+    package:
+      name: docker-engine
+      state: present
+    become: yes
 
-- name: docker | install docker
-  package:
-    name: docker-engine
-    state: present
-  tags: docker
-  become: yes
+  - name: docker | add docker group
+    group:
+      name: docker
+      state: present
+    become: yes
 
-- name: docker | add docker group
-  group:
-    name: docker
-    state: present
-  tags: docker
-  become: yes
+  - name: docker | update group
+    user:
+      name: "{{ lookup('env','USER') }}"
+      append: yes
+      groups: docker
+    become: yes
 
-- name: docker | update group
-  user:
-    name: "{{ lookup('env','USER') }}"
-    append: yes
-    groups: docker
+  - name: docker | start
+    service:
+      name: docker
+      state: started
+      enabled: yes
+    become: yes
   tags: docker
-  become: yes
-
-- name: docker | start
-  service:
-    name: docker
-    state: started
-    enabled: yes
-  tags: docker
-  become: yes

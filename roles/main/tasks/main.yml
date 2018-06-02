@@ -1,43 +1,44 @@
 ---
 - include_tasks: sudo.yml
-  when:
-    - ansible_os_family == "Debian"
   tags:
     - sudo
 
 - include_tasks: ansiblehosts.yml
-  when:
-    - ansible_os_family == "Debian"
   tags:
     - ansiblehosts
 
 - include_tasks: netboot.yml
-  when:
-    - ansible_os_family == "Debian"
   tags:
     - binaries
+
+- include_tasks: i3wm.yml
+  tags:
+    - binaries
+    - i3
 
 - include_tasks: binaries.yml
-  when:
-    - ansible_os_family == "Debian"
   tags:
     - binaries
 
+- include_tasks: editor.yml
+  tags:
+    - vim
+    - editor
+
+- include_tasks: dotfiles.yml
+  tags:
+    - dots
+    - dotfiles
+
 - include_tasks: dropbox.yml
-  when:
-    - ansible_os_family == "Debian"
   tags:
     - dropbox
 
 - include_tasks: vpn.yml
-  when:
-    - ansible_os_family == "Debian"
   tags:
     - vpn
 
 - include_tasks: docker.yml
-  when:
-    - ansible_os_family == "Debian"
   tags:
     - docker
 
@@ -46,20 +47,6 @@
     - ansible_os_family == "Debian"
   tags:
     - java
-
-- include_tasks: i3wm.yml
-  when:
-    - ansible_os_family == "Debian"
-  tags:
-    - i3
-
-- include_tasks: editor.yml
-  when:
-    - ansible_os_family == "Debian"
-  tags:
-    - vim
-    - editor
-    - wsl
 
 - include_tasks: vscode.yml
   when:
@@ -74,20 +61,9 @@
     - dbeaver
 
 - include_tasks: fonts.yml
-  when:
-    - ansible_os_family == "Debian"
   tags:
     - fonts
-    - wsl
     - i3
-
-- include_tasks: dotfiles.yml
-  when:
-    - ansible_os_family == "Debian"
-  tags:
-    - dots
-    - dotfiles
-    - wsl
 
 - include_tasks: thinkpad.yml
   when:

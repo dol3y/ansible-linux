@@ -1,56 +1,59 @@
 ---
-- name: fonts | create fonts dir
-  file:
-    path: /opt/fonts
-    state: directory
-  become: yes
+- block:
+  - name: fonts | create fonts dir
+    file:
+      path: /opt/fonts
+      state: directory
+    become: yes
 
-- name: fonts | extract font awesome
-  unarchive:
-    src: https://github.com/FortAwesome/Font-Awesome/archive/v4.7.0.tar.gz
-    dest: /opt/fonts
-    copy: no
-  become: yes
+  - name: fonts | extract font awesome
+    unarchive:
+      src: https://github.com/FortAwesome/Font-Awesome/archive/v4.7.0.tar.gz
+      dest: /opt/fonts
+      copy: no
+    become: yes
 
-- name: fonts | create font awesome dir
-  file:
-    path: /usr/share/fonts/Font-Awesome
-    state: directory
-  become: yes
+  - name: fonts | create font awesome dir
+    file:
+      path: /usr/share/fonts/Font-Awesome
+      state: directory
+    become: yes
 
-- name: fonts | install font awesome
-  file:
-    src: /opt/fonts/Font-Awesome-4.7.0/fonts/fontawesome-webfont.ttf
-    dest: /usr/share/fonts/Font-Awesome/fontawesome-webfont.ttf
-    state: link
-  become: yes
+  - name: fonts | install font awesome
+    file:
+      src: /opt/fonts/Font-Awesome-4.7.0/fonts/fontawesome-webfont.ttf
+      dest: /usr/share/fonts/Font-Awesome/fontawesome-webfont.ttf
+      state: link
+    become: yes
 
-- name: fonts | extract yosemite-sf
-  unarchive:
-    src: https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
-    dest: /opt/fonts
-    copy: no
-  become: yes
+  - name: fonts | extract yosemite-sf
+    unarchive:
+      src: https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
+      dest: /opt/fonts
+      copy: no
+    become: yes
 
-- name: fonts | create yosemite-sf dir
-  file:
-    path: /usr/share/fonts/YosemiteSanFranciscoFont
-    state: directory
-  become: yes
+  - name: fonts | create yosemite-sf dir
+    file:
+      path: /usr/share/fonts/YosemiteSanFranciscoFont
+      state: directory
+    become: yes
 
-- name: fonts | install yosemite-sf
-  file:
-    src: "{{ item }}"
-    dest: "/usr/share/fonts/YosemiteSanFranciscoFont/{{ item | basename }}"
-    state: link
-  with_fileglob:
-    - /opt/fonts/YosemiteSanFranciscoFont-master/*.ttf
-  become: yes
+  - name: fonts | install yosemite-sf
+    file:
+      src: "{{ item }}"
+      dest: "/usr/share/fonts/YosemiteSanFranciscoFont/{{ item | basename }}"
+      state: link
+    with_fileglob:
+      - /opt/fonts/YosemiteSanFranciscoFont-master/*.ttf
+    become: yes
 
-- name: fonts | inconsolata
-  package:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - fonts-inconsolata
-  become: yes
+  - name: fonts | inconsolata
+    package:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - fonts-inconsolata
+    become: yes
+  tags:
+    - fonts
