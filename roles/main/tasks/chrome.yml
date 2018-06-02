@@ -25,3 +25,5 @@
       name: google-chrome-stable
       state: present
     become: yes
+  tags:
+    - chrome
