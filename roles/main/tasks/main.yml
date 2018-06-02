@@ -2,18 +2,26 @@
 - include_tasks: sudo.yml
   when:
     - ansible_os_family == "Debian"
+  tags:
+    - sudo
 
-- include_tasks: ansible_hosts.yml
+- include_tasks: ansiblehosts.yml
   when:
     - ansible_os_family == "Debian"
+  tags:
+    - ansiblehosts
 
 - include_tasks: netboot.yml
   when:
     - ansible_os_family == "Debian"
+  tags:
+    - binaries
 
 - include_tasks: binaries.yml
   when:
     - ansible_os_family == "Debian"
+  tags:
+    - binaries
 
 - include_tasks: dropbox.yml
   when:
@@ -53,18 +61,6 @@
     - editor
     - wsl
 
-#- include_tasks: insomnia.yml
-#  when:
-#    - ansible_os_family == "Debian"
-#  tags:
-#    - insomnia
-
-#- include: pycharm.yml
-#  when:
-#    - ansible_os_family == "Debian"
-#  tags:
-#    - pycharm
-
 - include_tasks: vscode.yml
   when:
     - ansible_os_family == "Debian"
@@ -99,18 +95,6 @@
     - ansible_os_family == "Debian"
   tags:
     - tp
-
-- include_tasks: xfce.yml
-  when:
-    - ansible_os_family == "Debian"
-  tags:
-    - xfce
-
-- include_tasks: lollypop.yml
-  when:
-    - ansible_os_family == "Debian"
-  tags:
-    - lollypop
 
 - include_tasks: pyenv.yml
   when:
