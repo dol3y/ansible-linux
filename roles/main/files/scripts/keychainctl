@@ -4,7 +4,7 @@ keychain="$(which keychain)"
 
 case $1 in
   start)
-    $keychain --quiet $HOME/.ssh/id_rsa
+    $keychain --quick --quiet $(find $HOME/.ssh/ -regex .*id_rsa.* ! -name *.pub)
     ;;
   stop)
     $keychain -k all
