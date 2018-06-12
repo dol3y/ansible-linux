@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   config.vbguest.iso_path = "/usr/share/virtualbox/VBoxGuestAdditions.iso"
   config.vm.provision "shell" do |sh|
-    sh.inline = "cd /vagrant && make clean"
+    sh.inline = "cd /vagrant && make ansible"
     sh.privileged = false
   end
 end
