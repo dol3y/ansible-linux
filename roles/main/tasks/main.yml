@@ -30,10 +30,10 @@
     - dots
     - dotfiles
 
-#- include_tasks: dropbox.yml
-#  tags:
-#    - dropbox
-#
+- include_tasks: dropbox.yml
+  tags:
+    - dropbox
+
 #- include_tasks: vpn.yml
 #  tags:
 #    - vpn
