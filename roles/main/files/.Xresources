@@ -24,13 +24,13 @@ URxvt*scrollWithBuffer:     false
 URxvt*skipScroll:           true
 URxvt*termName:             xterm-256color
 URxvt.allow_bold:           true
-URxvt.boldFont:             xft:Inconsolata:pixelsize=18:weight=Bold
+URxvt.boldFont:             xft:Inconsolata:pixelsize=14:weight=Bold
 URxvt.cursorBlink:          true
 URxvt.cursorColor:          #657b83
 URxvt.cursorUnderline:      false
 URxvt.depth:                32
 URxvt.fading:               40
-URxvt.font:                 xft:Inconsolata:pixelsize=18
+URxvt.font:                 xft:Inconsolata:pixelsize=14
 URxvt.geometry:             150x35
 URxvt.internalBorder:       3
 URxvt.iso14755:             false

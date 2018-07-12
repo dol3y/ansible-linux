@@ -17,6 +17,7 @@
         backup: yes
       with_fileglob:
         - .*
+      notify: merge xresources
 
     - name: dotfiles | scripts
       copy:
