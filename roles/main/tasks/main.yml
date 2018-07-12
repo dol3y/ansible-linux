@@ -3,19 +3,6 @@
   tags:
     - sudo
 
-- include_tasks: ansiblehosts.yml
-  tags:
-    - ansiblehosts
-
-- include_tasks: base.yml
-  tags:
-    - binaries
-
-- include_tasks: i3wm.yml
-  tags:
-    - binaries
-    - i3
-
 - include_tasks: binaries.yml
   tags:
     - binaries
@@ -37,11 +24,11 @@
 #- include_tasks: vpn.yml
 #  tags:
 #    - vpn
-#
+
 #- include_tasks: docker.yml
 #  tags:
 #    - docker
-#
+
 #- include_tasks: java.yml
 #  tags:
 #    - java
@@ -54,10 +41,15 @@
 #  tags:
 #    - dbeaver
 
-- include_tasks: fonts.yml
-  tags:
-    - fonts
-    - i3
+#- include_tasks: fonts.yml
+#  tags:
+#    - fonts
+#    - i3
+
+#- include_tasks: i3wm.yml
+#  tags:
+#    - binaries
+#    - i3
 
 - include_tasks: chrome.yml
   tags:

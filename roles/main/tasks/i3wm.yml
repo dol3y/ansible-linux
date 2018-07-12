@@ -33,9 +33,7 @@
       mode: 0644
       backup: yes
     with_items:
-      - .gtkrc-2.0
       - .config/dunst/dunstrc
-      - .config/gtk-3.0/settings.ini
       #- .config/i3/config
 
   - name: i3 | add i3blocks config
