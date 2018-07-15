@@ -25,9 +25,9 @@
 #  tags:
 #    - vpn
 
-#- include_tasks: docker.yml
-#  tags:
-#    - docker
+- include_tasks: docker.yml
+  tags:
+    - docker
 
 #- include_tasks: java.yml
 #  tags:
