@@ -41,10 +41,10 @@
 #  tags:
 #    - dbeaver
 
-#- include_tasks: fonts.yml
-#  tags:
-#    - fonts
-#    - i3
+- include_tasks: fonts.yml
+  tags:
+    - fonts
+    - i3
 
 #- include_tasks: i3wm.yml
 #  tags:

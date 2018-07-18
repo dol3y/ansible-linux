@@ -26,27 +26,27 @@
       state: link
     become: yes
 
-  - name: fonts | extract yosemite-sf
-    unarchive:
-      src: https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
-      dest: /opt/fonts
-      copy: no
-    become: yes
+#  - name: fonts | extract yosemite-sf
+#    unarchive:
+#      src: https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
+#      dest: /opt/fonts
+#      copy: no
+#    become: yes
 
-  - name: fonts | create yosemite-sf dir
-    file:
-      path: /usr/share/fonts/YosemiteSanFranciscoFont
-      state: directory
-    become: yes
+#  - name: fonts | create yosemite-sf dir
+#    file:
+#      path: /usr/share/fonts/YosemiteSanFranciscoFont
+#      state: directory
+#    become: yes
 
-  - name: fonts | install yosemite-sf
-    file:
-      src: "{{ item }}"
-      dest: "/usr/share/fonts/YosemiteSanFranciscoFont/{{ item | basename }}"
-      state: link
-    with_fileglob:
-      - /opt/fonts/YosemiteSanFranciscoFont-master/*.ttf
-    become: yes
+#  - name: fonts | install yosemite-sf
+#    file:
+#      src: "{{ item }}"
+#      dest: "/usr/share/fonts/YosemiteSanFranciscoFont/{{ item | basename }}"
+#      state: link
+#    with_fileglob:
+#      - /opt/fonts/YosemiteSanFranciscoFont-master/*.ttf
+#    become: yes
 
   - name: fonts | inconsolata
     package:
