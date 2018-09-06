@@ -1,8 +1,10 @@
 ---
-- name: sudo | sudoers.d
-  template:
-    src: etc/sudoers.d/sudo.j2
-    dest: "/etc/sudoers.d/{{ user }}"
-    validate: 'visudo -cf %s'
-  tags: sudo
-  become: yes
+- block:
+  - name: sudo | sudoers.d
+    template:
+      src: etc/sudoers.d/sudo.j2
+      dest: "/etc/sudoers.d/{{ user }}"
+      validate: 'visudo -cf %s'
+    become: yes
+  tags:
+    - sudo

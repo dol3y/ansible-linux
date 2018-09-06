@@ -80,20 +80,16 @@ if [ -e /etc/debian_version ]; then
   fi
 fi
 
-export PATH="$HOME/bin:$PATH"
-
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWSTASHSTATE=true
 
 PS1="\[$green\]\u@\h\[\e[m\]:\[$cyan\]\W\[\e[m\]\[$red\]\$(__git_ps1 ' [%s]')\[\e[m\]\n\$ "
 
-## make bash autocomplete with up arrow
-#bind '"\e[A":history-search-backward'
-#bind '"\e[B":history-search-forward'
-#
-## make tab cycle through commands instead of listing
-#bind '"\t":menu-complete'
+export PATH="$HOME/bin:$PATH"
+if [ -d $HOME/.local/bin ]; then
+  export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
 
 if which pyenv &> /dev/null; then
   export PATH="$HOME/.pyenv/bin:$PATH"

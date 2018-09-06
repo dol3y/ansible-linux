@@ -1,25 +1,19 @@
 ---
-# https://keepassxc.org/download
-- name: keepassxc | official ubuntu ppa
-  apt_repository:
-    repo: "ppa:phoerious/keepassxc"
-    update_cache: yes
-    state: present
-  become: yes
+- block:
+  # https://keepassxc.org/download
+  - name: keepassxc | official ubuntu ppa
+    apt_repository:
+      repo: "ppa:phoerious/keepassxc"
+      update_cache: yes
+      state: present
+    become: yes
 
-- name: keepassxc | install
-  apt:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - keepassxc
-  become: yes
-
-- name: keepassxc | uninstall old version
-  apt:
-    name: "{{ item }}"
-    state: absent
-  with_items:
-    - keepassx
-    - kpcli
-  become: yes
+  - name: keepassxc | install
+    apt:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - keepassxc
+    become: yes
+  tags:
+    - kpxc

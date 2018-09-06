@@ -1,30 +1,31 @@
 ---
-- name: dotfiles | create standard dirs
-  file:
-    path: "{{ item }}"
-    state: directory
-    recurse: yes
-  with_items:
-    - "{{ my_bin }}"
-    - "{{ my_src }}"
-    - "{{ home_dir}}/go"
+- block:
+    - name: dotfiles | create standard dirs
+      file:
+        path: "{{ item }}"
+        state: directory
+        recurse: yes
+      with_items:
+        - "{{ my_bin }}"
+        - "{{ my_src }}"
+        - "{{ home_dir}}/go"
 
-- name: dotfiles | install .*
-  copy:
-    src: "{{ item }}"
-    dest: "{{ home_dir}}/.{{ item | basename }}"
-    backup: yes
-  with_fileglob:
-    - dotfiles/*
+    - name: dotfiles | install .*
+      copy:
+        src: "{{ item }}"
+        dest: "{{ home_dir}}/{{ item | basename }}"
+        backup: yes
+      with_fileglob:
+        - .*
+      notify: merge xresources
 
-- name: dotfiles | tmux battery
-  copy:
-    src: scripts/battery.py
-    dest: "{{ my_bin }}/battery"
-    mode: 0755
-
-#- name: dotfiles | tmux keychainctl
-#  copy:
-#    src: scripts/keychainctl.sh
-#    dest: "{{ my_bin }}/keychainctl"
-#    mode: 0755
+    - name: dotfiles | scripts
+      copy:
+        src: "{{ item }}"
+        dest: "{{ my_bin }}/{{ item | basename }}"
+        mode: 0754
+      with_fileglob:
+        - scripts/*
+  tags:
+    - dotfiles
+    - dots

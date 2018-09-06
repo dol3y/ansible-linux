@@ -4,3 +4,6 @@
     name: procps
     state: restarted
   become: yes
+
+- name: merge xresources
+  command: xrdb -merge $HOME/.Xresources

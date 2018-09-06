@@ -1,4 +1,4 @@
-# ThinkPad T440 specific
+# ThinkPad T440 specific for LTS 16.04
 ---
 # https://github.com/lwfinger/rtlwifi_new - still rubbish
 - name: thinkpad | realtek wifi config
