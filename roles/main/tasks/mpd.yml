@@ -1,0 +1,14 @@
+---
+- block:
+  - file:
+      path: "{{ item }}"
+      owner: "{{ user }}"
+      recurse: yes
+    with_items:
+      - /var/log/mpd
+      - /run/mpd
+      - /var/lib/mpd
+    become: yes
+
+  tags: mpd
+

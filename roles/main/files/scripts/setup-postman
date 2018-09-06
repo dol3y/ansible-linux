@@ -6,8 +6,8 @@ postman_path="/opt/Postman"
 backup_path="/opt/Postman.1.bk"
 
 if [ -d $postman_path ]; then
-  rm -fr $backup_path
-  mv $postman_path $backup_path
+  sudo rm -fr $backup_path
+  sudo mv $postman_path $backup_path
   echo "Backup previous version to $backup_path"
 fi
 
