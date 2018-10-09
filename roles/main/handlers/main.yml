@@ -7,3 +7,6 @@
 
 - name: merge xresources
   command: xrdb -merge $HOME/.Xresources
+
+- name: restart pulse audio
+  command: pulseaudio -k

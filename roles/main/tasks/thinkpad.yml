@@ -10,15 +10,6 @@
   become: yes
   tags: realtek
 
-# disable wifi
-- name: thinkpad | realtek wifi blacklist module
-  lineinfile:
-    dest: /etc/modprobe.d/blacklist.conf
-    line: 'blacklist rtl8192ee'
-    backup: yes
-  become: yes
-  tags: realtek
-
 - name: thinkpad | install uswsusp
   package:
     name: uswsusp

@@ -62,3 +62,7 @@
 - include_tasks: mpd.yml
   tags:
     - mpd
+
+- include_tasks: ubuntu1804.yml
+  tags:
+    - ubuntu

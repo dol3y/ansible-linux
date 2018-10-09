@@ -1,0 +1,20 @@
+---
+- block:
+  - name: fix audio stuttering
+    lineinfile:
+      path: /etc/pulse/daemon.conf
+      backup: yes
+      line: 'realtime-scheduling = no'
+      insertafter: EOF
+    become: yes
+    notify: restart pulse audio
+  
+  - name: blacklist realtek wifi module
+    lineinfile:
+      dest: /etc/modprobe.d/blacklist.conf
+      line: 'blacklist rtl8192ee'
+      backup: yes
+      insertafter: EOF
+    become: yes
+
+  tags: ubuntu
