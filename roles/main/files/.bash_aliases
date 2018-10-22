@@ -38,6 +38,7 @@ alias gss='git status -s'
 alias h='history'
 alias j='jobs -l'
 alias mv='mv -i'
+alias psh="pipenv shell"
 alias tree='tree -C'
 alias vdest='vagrant destroy -f'
 alias vhalt='vagrant halt'
