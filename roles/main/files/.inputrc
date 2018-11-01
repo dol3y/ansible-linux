@@ -5,3 +5,7 @@ set editing-mode emacs
 
 "\e[1;5C": forward-word
 "\e[1;5D": backward-word
+
+# for resizing TMUX panes in PuTTY
+"\eOD": backward-word
+"\eOC": forward-word
