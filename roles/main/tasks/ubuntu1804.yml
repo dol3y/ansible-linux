@@ -8,7 +8,8 @@
       insertafter: EOF
     become: yes
     notify: restart pulse audio
-  
+    when: ansible_virtualization_role == "host"
+
   - name: blacklist realtek wifi module
     lineinfile:
       dest: /etc/modprobe.d/blacklist.conf
@@ -16,5 +17,6 @@
       backup: yes
       insertafter: EOF
     become: yes
+    when: ansible_virtualization_role == "host"
 
   tags: ubuntu

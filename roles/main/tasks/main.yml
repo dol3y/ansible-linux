@@ -62,6 +62,7 @@
 - include_tasks: mpd.yml
   tags:
     - mpd
+  when: ansible_virtualization_role == "host"
 
 - include_tasks: ubuntu1804.yml
   tags:
