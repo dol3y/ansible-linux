@@ -1,6 +1,7 @@
 ---
 - block:
-  - file:
+  - name: modify mpd directory permissions
+    file:
       path: "{{ item }}"
       owner: "{{ user }}"
       recurse: yes
