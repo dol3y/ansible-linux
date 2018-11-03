@@ -2,6 +2,4 @@ language: python
 
 build:
   ci:
-    - bin/install-ansible.sh
-    - pip install -q ansible-lint
-    - ansible-lint setup.yml
+    - make test
