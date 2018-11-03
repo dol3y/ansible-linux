@@ -6,4 +6,7 @@ python:
 build:
   ci:
     - apt-get update
-    - make lint
+    - pip3 install pipenv
+    - pipenv --three
+    - pipenv install --dev
+    - pipenv run ansible-lint setup.yml
