@@ -1,7 +1,0 @@
-  pyOpenSSL==17.5.0
-  paramiko
-  PyYAML
-  Jinja2==2.10
-  httplib2
-  six
-  ansible==2.4.3.0
