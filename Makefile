@@ -15,8 +15,5 @@ sudo: pipenv
 ansible: pipenv
 	export PATH=$$HOME/.local/bin:$$PATH && pipenv run ansible-playbook setup.yml
 
-test: pipenv
-	export PATH=$$HOME/.local/bin:$$PATH && pipenv run ansible-lint setup.yml
-
 clean:
 	export PATH=$$HOME/.local/bin:$$PATH && pipenv --rm
