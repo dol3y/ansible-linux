@@ -1,43 +1,51 @@
 ---
-- name: java | install webupd8 ppa
-  apt_repository:
-    repo: "ppa:webupd8team/java"
-    update_cache: yes
-    state: present
-  tags: java
-  become: yes
+#- name: java | install webupd8 ppa
+#  apt_repository:
+#    repo: "ppa:webupd8team/java"
+#    update_cache: yes
+#    state: present
+#  tags: java
+#  become: yes
 
-- name: java | accept license
-  debconf:
-    name: oracle-java8-installer
-    question: shared/accepted-oracle-license-v1-1
-    value: true
-    vtype: select
-  tags: java
-  become: yes
+#- name: java | accept license
+#  debconf:
+#    name: oracle-java8-installer
+#    question: shared/accepted-oracle-license-v1-1
+#    value: true
+#    vtype: select
+#  tags: java
+#  become: yes
 
 - name: java | install java 8
   apt:
     name: "{{ item }}"
     state: present
   with_items:
-    - oracle-java8-installer
-    - oracle-java8-set-default
+#    - oracle-java8-installer
+#    - oracle-java8-set-default
+    - openjdk-8-jdk
     - maven
   tags: java
   become: yes
 
-- name: java | firefox plugins dir
-  file:
-    name: /usr/lib/firefox-addons/plugins
-    state: directory
+- name: java | use jdk 8
+  alternatives:
+    name: java
+    path: /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
   tags: java
   become: yes
 
-- name: java | firefox java plugin
-  file:
-    name: /usr/lib/firefox-addons/plugins/libnpjp2.so
-    src: /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnpjp2.so
-    state: link
-  tags: java
-  become: yes
+#- name: java | firefox plugins dir
+#  file:
+#    name: /usr/lib/firefox-addons/plugins
+#    state: directory
+#  tags: java
+#  become: yes
+
+#- name: java | firefox java plugin
+#  file:
+#    name: /usr/lib/firefox-addons/plugins/libnpjp2.so
+#    src: /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnpjp2.so
+#    state: link
+#  tags: java
+#  become: yes

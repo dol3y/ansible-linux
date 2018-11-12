@@ -29,9 +29,9 @@
   tags:
     - docker
 
-#- include_tasks: java.yml
-#  tags:
-#    - java
+- include_tasks: java.yml
+  tags:
+    - java
 
 - include_tasks: vscode.yml
   tags:
@@ -67,3 +67,8 @@
 - include_tasks: ubuntu1804.yml
   tags:
     - ubuntu
+
+- include_tasks: jenkins.yml
+  tags:
+    - jenkins
+  when: ansible_virtualization_role == "guest"
