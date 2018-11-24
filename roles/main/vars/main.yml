@@ -10,6 +10,7 @@ binaries:
   - alpine
   - apt-file
   - bash-completion
+  - bats
   - build-essential
   - dsh
   - expect
@@ -75,26 +76,5 @@ vim_plugins:
   - git://github.com/tpope/vim-sensible.git
   - git://github.com/tpope/vim-surround.git
   - git://github.com/vimwiki/vimwiki.git
-
-cygwin_packages:
-  - bash-completion
-  - ca-certificates
-  - chere
-  - curl
-  - dos2unix
-  - gcc-core
-  - git
-  - httpie
-  - inetutils
-  - jq
-  - ncurses
-  - ping
-  - pv
-  - shutdown
-  - time
-  - tmux
-  - tree
-  - vim
-  - wget
 
 minikube_url: https://storage.googleapis.com/minikube/releases/v0.30.0/minikube-linux-amd64
