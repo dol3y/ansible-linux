@@ -97,3 +97,4 @@ cygwin_packages:
   - vim
   - wget
 
+minikube_url: https://storage.googleapis.com/minikube/releases/v0.30.0/minikube-linux-amd64

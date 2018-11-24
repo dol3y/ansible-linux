@@ -72,3 +72,8 @@
   tags:
     - jenkins
   when: ansible_virtualization_role == "guest"
+
+- include_tasks: minikube.yml
+  tags:
+    - minikube
+  when: ansible_virtualization_role == "guest"
