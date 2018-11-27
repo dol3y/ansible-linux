@@ -1,4 +1,6 @@
 ---
+# Installs 'aws-okta' binary
+# https://github.com/segmentio/aws-okta
 - block:
   - name: aws-okta | add signing key
     apt_key:
