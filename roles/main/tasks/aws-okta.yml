@@ -1,0 +1,25 @@
+---
+- block:
+  - name: aws-okta | add signing key
+    apt_key:
+      url: https://packagecloud.io/segment/aws-okta/gpgkey
+      state: present
+  - name: aws-okta | add repo
+    template:
+      src: "{{ item }}.j2"
+      dest: "/{{ item }}"
+      backup: yes
+    with_items:
+      - etc/apt/sources.list.d/segment_aws-okta.list
+    register: segment_aws_okta_repo
+  - name: aws-okta | update cache
+    apt:
+      update_cache: yes
+    when: segment_aws_okta_repo.changed
+  - name: aws-okta | install package
+    apt:
+      name: aws-okta
+      state: latest
+  become: yes
+  tags:
+    - aws-okta
