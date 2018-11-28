@@ -9,6 +9,7 @@ vim_bundle: "{{ home_dir }}/.vim/bundle"
 binaries:
   - alpine
   - apt-file
+  - awscli
   - bash-completion
   - bats
   - build-essential

@@ -12,6 +12,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ap='ansible-playbook'
+alias aws-okta='aws-okta -b secret-service'
 alias bc='bc -l'
 alias be='bundle exec '
 alias chrome='/usr/bin/google-chrome --user-data-dir=$HOME/.config/google-chrome &>/dev/null &'
