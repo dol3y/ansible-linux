@@ -1,0 +1,29 @@
+---
+- block:
+  - name: aws | get aws cli
+    get_url:
+      url: https://s3.amazonaws.com/aws-cli/awscli-bundle.zip
+      dest: /tmp
+  - name: aws | unzip awscli-bundle
+    unarchive:
+      src: /tmp/awscli-bundle.zip
+      dest: /tmp
+      remote_src: yes
+  - name: aws | install awscli
+    command: ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+    args:
+      chdir: /tmp
+      creates: /usr/local/aws
+    become: yes
+  - name: aws | create ~/.aws
+    file:
+      dest: "{{ home_dir}}/.aws"
+      state: directory
+  - name: aws | get aws-iam-authenticator bin
+    get_url:
+      url: https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/aws-iam-authenticator
+      dest: /usr/local/bin
+      mode: 0755
+    become: yes
+  tags:
+    - aws

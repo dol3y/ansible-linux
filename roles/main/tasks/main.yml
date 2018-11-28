@@ -78,7 +78,13 @@
     - minikube
   when: ansible_virtualization_role == "guest"
 
+- include_tasks: aws.yml
+  tags:
+    - aws
+  when: ansible_virtualization_role == "guest"
+
 - include_tasks: aws-okta.yml
   tags:
     - aws-okta
   when: ansible_virtualization_role == "guest"
+
