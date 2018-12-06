@@ -27,6 +27,7 @@ export HISTSIZE=32769
 export HISTCONTROL=ignoredups:erasedups
 
 export EDITOR="vim"
+export NNN_USE_EDITOR=1
 
 # alias definitions.
 if [ -f ~/.bash_aliases ]; then
