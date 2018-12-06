@@ -10,3 +10,9 @@
 
 - name: restart pulse audio
   command: pulseaudio -k
+
+- name: restart jenkins
+  systemd:
+    name: jenkins
+    state: restarted
+  become: yes
