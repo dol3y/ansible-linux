@@ -7,6 +7,12 @@
       creates: /snap/bin/kubectl
     become: yes
 
+  - name: install helm snap
+    command: snap install helm --classic
+    args:
+      creates: /snap/bin/helm
+    become: yes
+
   - name: install minikube
     shell: "curl -Lo minikube {{ minikube_url }} && chmod +x minikube && sudo cp minikube /usr/local/bin/ && rm minikube"
     args:
