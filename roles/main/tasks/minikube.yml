@@ -13,6 +13,11 @@
       creates: /snap/bin/helm
     become: yes
 
+  - name: install package socat for helm
+    apt:
+      name: socat
+      state: present
+
   - name: install minikube
     shell: "curl -Lo minikube {{ minikube_url }} && chmod +x minikube && sudo cp minikube /usr/local/bin/ && rm minikube"
     args:
