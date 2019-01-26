@@ -5,7 +5,5 @@ set editing-mode emacs
 
 "\e[1;5C": forward-word
 "\e[1;5D": backward-word
-
-# Not sure what this was for??
 "\eOD": backward-word
 "\eOC": forward-word
