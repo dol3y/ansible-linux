@@ -51,6 +51,8 @@ binaries:
   - unzip
   - uptimed
   - whois
+  - zathura
+  - zathura-pdf-poppler
 
 cisco_vpn:
   - vpnc
