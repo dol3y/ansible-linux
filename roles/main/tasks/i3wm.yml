@@ -1,5 +1,6 @@
 ---
 - block:
+
   - name: i3 | install
     package:
       name: "{{ item }}"
@@ -64,6 +65,8 @@
       - usr/share/X11/xorg.conf.d/20-intel.conf
     when: ansible_product_version == "ThinkPad T440"
     become: yes
+
+  when: ansible_virtualization_role == "host"
   tags:
     - binaries
     - i3

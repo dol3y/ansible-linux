@@ -1,29 +1,12 @@
 ---
-# NOTE: downgraded Docker to 18.06.0-ce to get v0.30.0 working
 - block:
-  - name: install kubectl snap
-    command: snap install kubectl --classic
-    args:
-      creates: /snap/bin/kubectl
-    become: yes
-
-  - name: install helm snap
-    command: snap install helm --classic
-    args:
-      creates: /snap/bin/helm
-    become: yes
-
-  - name: install package socat for helm
-    apt:
-      name: socat
-      state: present
-
+  # depends on k8s-tools
+  # NOTE: downgraded Docker to 18.06.0-ce to get v0.30.0 working
   - name: install minikube
     shell: "curl -Lo minikube {{ minikube_url }} && chmod +x minikube && sudo cp minikube /usr/local/bin/ && rm minikube"
     args:
       creates: /usr/local/bin/minikube
       warn: no
-    become: yes
 
   - name: start minikube
     command: "minikube start --vm-driver=none --memory=8192"
@@ -31,7 +14,6 @@
       CHANGE_MINIKUBE_NONE_USER: true
     args:
       creates: "{{ home_dir}}/.minikube"
-    become: yes
 
   - name: confirm perms are set correctly
     file:
@@ -42,6 +24,7 @@
     with_items:
       - "{{ home_dir}}/.minikube"
       - "{{ home_dir}}/.kube"
-    become: yes
+
+  become: yes
   tags: minikube
 

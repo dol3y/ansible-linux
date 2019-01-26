@@ -17,14 +17,15 @@
     register: segment_aws_okta_repo
 
   - name: aws-okta | update cache
-    apt:
+    package:
       update_cache: yes
     when: segment_aws_okta_repo.changed
 
   - name: aws-okta | install package
-    apt:
+    package:
       name: aws-okta
       state: present
+
   become: yes
   tags:
     - aws-okta

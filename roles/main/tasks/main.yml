@@ -21,15 +21,11 @@
   tags:
     - dropbox
 
-#- include_tasks: vpn.yml
-#  tags:
-#    - vpn
-
 - include_tasks: docker.yml
   tags:
     - docker
 
-- include_tasks: java.yml
+- include_tasks: java-openjdk.yml
   tags:
     - java
 
@@ -37,19 +33,19 @@
   tags:
     - vscode
 
-#- include_tasks: dbeaver.yml
-#  tags:
-#    - dbeaver
+- include_tasks: dbeaver.yml
+  tags:
+    - dbeaver
+
+- include_tasks: i3wm.yml
+  tags:
+    - binaries
+    - i3
 
 - include_tasks: fonts.yml
   tags:
     - fonts
     - i3
-
-#- include_tasks: i3wm.yml
-#  tags:
-#    - binaries
-#    - i3
 
 - include_tasks: chrome.yml
   tags:
@@ -62,29 +58,20 @@
 - include_tasks: mpd.yml
   tags:
     - mpd
-  when: ansible_virtualization_role == "host"
 
 - include_tasks: ubuntu1804.yml
   tags:
     - ubuntu
 
-- include_tasks: jenkins.yml
+- include_tasks: k8s-tools.yml
   tags:
-    - jenkins
-  when: ansible_virtualization_role == "guest"
-
-- include_tasks: minikube.yml
-  tags:
-    - minikube
-  when: ansible_virtualization_role == "guest"
+    - k8s
 
 - include_tasks: aws.yml
   tags:
     - aws
-  when: ansible_virtualization_role == "guest"
 
 - include_tasks: aws-okta.yml
   tags:
     - aws-okta
-  when: ansible_virtualization_role == "guest"
 

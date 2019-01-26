@@ -1,14 +1,13 @@
 ---
 - block:
+
   - name: fix audio stuttering
     lineinfile:
       path: /etc/pulse/daemon.conf
       backup: yes
       line: 'realtime-scheduling = no'
       insertafter: EOF
-    become: yes
     notify: restart pulse audio
-    when: ansible_virtualization_role == "host"
 
   - name: blacklist realtek wifi module
     lineinfile:
@@ -16,7 +15,7 @@
       line: 'blacklist rtl8192ee'
       backup: yes
       insertafter: EOF
-    become: yes
-    when: ansible_virtualization_role == "host"
 
+  become: yes
+  when: ansible_virtualization_role == "host"
   tags: ubuntu

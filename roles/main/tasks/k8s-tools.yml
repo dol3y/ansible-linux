@@ -1,0 +1,22 @@
+---
+# k8s tools
+- block:
+
+  - name: install package socat for helm
+    package:
+      name: socat
+      state: present
+
+  - name: install kubectl snap
+    command: snap install kubectl --classic
+    args:
+      creates: /snap/bin/kubectl
+
+  - name: install helm snap
+    command: snap install helm --classic
+    args:
+      creates: /snap/bin/helm
+
+  become: yes
+  tags:
+    - k8s

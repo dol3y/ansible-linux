@@ -15,8 +15,8 @@
     with_items:
       - keepassxc
 
-  when: ansible_virtualization_role == "host"
   become: yes
+  when: ansible_virtualization_role == "host"
   tags:
     - kpxc
 

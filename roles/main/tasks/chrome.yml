@@ -1,10 +1,10 @@
 ---
 - block:
+
   - name: chrome | add google signing key
     apt_key:
       url: https://dl-ssl.google.com/linux/linux_signing_key.pub
       state: present
-    become: yes
 
   - name: chrome | add repo
     apt_repository:
@@ -12,12 +12,13 @@
       repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
       update_cache: yes
       state: present
-    become: yes
 
   - name: chrome | install chrome
     apt:
       name: google-chrome-stable
       state: present
-    become: yes
+
+  become: yes
+  when: ansible_virtualization_role == "host"
   tags:
     - chrome
