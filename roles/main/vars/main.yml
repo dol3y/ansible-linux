@@ -13,6 +13,7 @@ binaries:
   - bats
   - build-essential
   - dsh
+  - curl
   - expect
   - figlet
   - git-cola
@@ -26,7 +27,6 @@ binaries:
   - jq
   - keychain
   - links2
-  - mpd
   - mtr
   - mutt
   - ncmpcpp
