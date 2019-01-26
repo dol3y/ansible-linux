@@ -1,5 +1,6 @@
 ---
 - block:
+
   - name: vim | vim-nox
     package:
       name: vim-nox
@@ -51,6 +52,7 @@
       backup: yes
     with_items:
       - .vimrc
+
   tags:
     - vim
     - editor

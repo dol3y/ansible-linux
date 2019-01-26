@@ -1,6 +1,14 @@
 ---
 - block:
-  - name: modify mpd directory permissions
+  - name: mpd | install
+    package:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - mpd
+    become: yes
+
+  - name: mpd | modify directory permissions
     file:
       path: "{{ item }}"
       owner: "{{ user }}"
@@ -10,6 +18,6 @@
       - /run/mpd
       - /var/lib/mpd
     become: yes
-
+  when: ansible_virtualization_role == "host"
   tags: mpd
 

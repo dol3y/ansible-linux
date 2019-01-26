@@ -2,4 +2,7 @@
 - name: dbeaver | install
   apt:
     deb: https://dbeaver.jkiss.org/files/dbeaver-ce_latest_amd64.deb
+  when: ansible_virtualization_role == "host"
   become: yes
+  tags:
+    - dbeaver

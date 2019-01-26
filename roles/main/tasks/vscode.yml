@@ -1,5 +1,6 @@
 ---
 - block:
+
   - name: vscode | add microsoft signing key
     apt_key:
       url: https://packages.microsoft.com/keys/microsoft.asc
@@ -35,5 +36,8 @@
     with_items:
       - .config/Code/User/keybindings.json
       - .config/Code/User/settings.json
+
+  when: ansible_virtualization_role == "host"
   tags:
     - vscode
+

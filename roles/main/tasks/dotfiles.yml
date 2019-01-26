@@ -1,31 +1,33 @@
 ---
 - block:
-    - name: dotfiles | create standard dirs
-      file:
-        path: "{{ item }}"
-        state: directory
-        recurse: yes
-      with_items:
-        - "{{ my_bin }}"
-        - "{{ my_src }}"
-        - "{{ home_dir}}/go"
 
-    - name: dotfiles | install .*
-      copy:
-        src: "{{ item }}"
-        dest: "{{ home_dir}}/{{ item | basename }}"
-        backup: yes
-      with_fileglob:
-        - .*
-      notify: merge xresources
+  - name: dotfiles | create standard dirs
+    file:
+      path: "{{ item }}"
+      state: directory
+      recurse: yes
+    with_items:
+      - "{{ my_bin }}"
+      - "{{ my_src }}"
+      - "{{ home_dir}}/go"
 
-    - name: dotfiles | scripts
-      copy:
-        src: "{{ item }}"
-        dest: "{{ my_bin }}/{{ item | basename }}"
-        mode: 0754
-      with_fileglob:
-        - scripts/*
+  - name: dotfiles | install .*
+    copy:
+      src: "{{ item }}"
+      dest: "{{ home_dir}}/{{ item | basename }}"
+      backup: yes
+    with_fileglob:
+      - .*
+    notify: merge xresources
+
+  - name: dotfiles | scripts
+    copy:
+      src: "{{ item }}"
+      dest: "{{ my_bin }}/{{ item | basename }}"
+      mode: 0754
+    with_fileglob:
+      - scripts/*
+
   tags:
     - dotfiles
     - dots
