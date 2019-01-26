@@ -8,12 +8,14 @@
       - "{{ binaries }}"
     become: yes
 
-  - name: binaries | dkms
+  - name: binaries | guest specific packages
     package:
-      name: dkms
+      name: "{{ item }}"
       state: present
+    with_items:
+      - dkms
+      - openssh-server
     when: ansible_virtualization_role == "guest"
     become: yes
-
   tags:
     - binaries
