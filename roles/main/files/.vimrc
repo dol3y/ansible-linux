@@ -91,4 +91,4 @@ au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
 
 "let g:pymode_python = 'python3'
 
-let g:vimwiki_list = [{'path': '$HOME/Dropbox/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '$HOME/Dropbox/share/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
