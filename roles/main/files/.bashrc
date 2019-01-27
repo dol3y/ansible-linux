@@ -28,6 +28,9 @@ export HISTCONTROL=ignoredups:erasedups
 
 export EDITOR="vim"
 export NNN_USE_EDITOR=1
+export NNN_BMS="d:$HOME/Dropbox;s:$HOME/src"
+export NNN_SCRIPT="$HOME/Dropbox/share/bin"
+export NNN_NOTE="$HOME/Dropbox/share/notes.md"
 
 # alias definitions.
 if [ -f ~/.bash_aliases ]; then
