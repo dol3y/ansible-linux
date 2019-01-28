@@ -9,7 +9,7 @@ execute pathogen#infect()
 
 syntax on
 try
-  colorscheme peachpuff
+  colorscheme solarized
 catch
 endtry
 
@@ -60,14 +60,14 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 " tmuxline settings
-let g:tmuxline_theme = 'lightline'
-let g:tmuxline_powerline_separators = 0
-let g:tmuxline_preset = {
-  \ 'a': '#S:#P',
-  \ 'win': '#I:#F',
-  \ 'cwin': '#I:#F',
-  \ 'y': "Batt:#(~/bin/battery)",
-  \ 'z': '%d/%m/%y %R'}
+"let g:tmuxline_theme = 'lightline'
+"let g:tmuxline_powerline_separators = 0
+"let g:tmuxline_preset = {
+"  \ 'a': '#S:#P',
+"  \ 'win': '#I:#F',
+"  \ 'cwin': '#I:#F',
+"  \ 'y': "Batt:#(~/bin/battery)",
+"  \ 'z': '%d/%m/%y %R'}
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
@@ -92,3 +92,26 @@ au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
 "let g:pymode_python = 'python3'
 
 let g:vimwiki_list = [{'path': '$HOME/Dropbox/share/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+
+function! s:goyo_enter()
+  "silent !tmux set status off
+  "silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  set noshowmode
+  set noshowcmd
+  set wrap
+  set scrolloff=999
+  set nonumber norelativenumber
+endfunction
+
+function! s:goyo_leave()
+  "silent !tmux set status on
+  "silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  set showmode
+  set showcmd
+  set nowrap
+  set scrolloff=5
+  set number relativenumber
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
