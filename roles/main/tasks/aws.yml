@@ -21,7 +21,7 @@
 
   - name: aws | create ~/.aws
     file:
-      dest: "{{ home_dir}}/.aws"
+      dest: "{{ home_dir }}/.aws"
       state: directory
 
   - name: aws | get aws-iam-authenticator bin
