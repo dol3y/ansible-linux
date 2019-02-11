@@ -100,7 +100,7 @@ function! s:goyo_enter()
   set noshowcmd
   set wrap
   set scrolloff=999
-  set nonumber norelativenumber
+  "set nonumber norelativenumber
 endfunction
 
 function! s:goyo_leave()
@@ -110,7 +110,7 @@ function! s:goyo_leave()
   set showcmd
   set nowrap
   set scrolloff=5
-  set number relativenumber
+  "set number relativenumber
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
