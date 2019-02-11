@@ -61,10 +61,15 @@ export GIT_PS1_SHOWSTASHSTATE=true
 
 PS1="\[$green\]\u@\h\[\e[m\]:\[$cyan\]\W\[\e[m\]\[$red\]\$(__git_ps1 ' [%s]')\[\e[m\]\n\$ "
 
-export PATH="$HOME/bin:$PATH"
 if [ -d $HOME/.local/bin ]; then
-  export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+  PATH="$HOME/.local/bin:$PATH"
 fi
+
+if [ -d $HOME/bin ]; then
+  PATH="$HOME/bin:$PATH"
+fi
+
+export PATH=$(printf %s "$PATH" | deduplicate.awk)
 
 #if [ ! -z ${XDG_CURRENT_DESKTOP+x} ] && [ $XDG_CURRENT_DESKTOP == 'i3' ]; then
 #    "$HOME/bin/keychainctl" start
