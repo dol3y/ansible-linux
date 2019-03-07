@@ -85,5 +85,5 @@ vim_plugins:
 minikube_url: https://storage.googleapis.com/minikube/releases/v0.30.0/minikube-linux-amd64
 
 consul_version: 1.2.2
-terraform_version: 0.11.7
+terraform_version: 0.11.11
 vault_version: 0.10.4

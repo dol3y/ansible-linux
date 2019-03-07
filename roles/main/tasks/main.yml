@@ -78,3 +78,5 @@
 - include_tasks: hashicorp.yml
   tags:
     - hashicorp
+    - hashi
+    - hash

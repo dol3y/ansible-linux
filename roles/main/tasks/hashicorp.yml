@@ -20,5 +20,8 @@
         dest: /usr/local/bin
 
   become: yes
-  tags: hashicorp
+  tags:
+    - hashicorp
+    - hashi
+    - hash
 
