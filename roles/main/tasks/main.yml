@@ -5,15 +5,18 @@
 
 - include_tasks: binaries.yml
   tags:
+    - base
     - binaries
 
 - include_tasks: editor.yml
   tags:
+    - base
     - vim
     - editor
 
 - include_tasks: dotfiles.yml
   tags:
+    - base
     - dots
     - dotfiles
 

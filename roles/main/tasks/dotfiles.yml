@@ -29,5 +29,6 @@
       - scripts/*
 
   tags:
+    - base
     - dotfiles
     - dots

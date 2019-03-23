@@ -18,4 +18,5 @@
     when: ansible_virtualization_role == "guest"
     become: yes
   tags:
+    - base
     - binaries
