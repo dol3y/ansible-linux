@@ -1,6 +1,7 @@
 ---
 - include_tasks: sudo.yml
   tags:
+    - base
     - sudo
 
 - include_tasks: binaries.yml
