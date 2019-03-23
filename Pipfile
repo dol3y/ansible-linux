@@ -16,4 +16,4 @@ six = "*"
 ansible = "*"
 
 [dev-packages]
-ansible-lint = "*"
+ansible-lint = "==4.1.0"
