@@ -1,7 +1,6 @@
 ---
 # PPA Docker Install
 - block:
-
   - name: docker | add key
     apt_key:
       url: https://download.docker.com/linux/ubuntu/gpg
@@ -22,25 +21,25 @@
       name: docker-ce
       state: present
     become: yes
-
-  when: ansible_virtualization_role == "host"
+  when:
+    - ansible_virtualization_role == "host"
+    - ansible_virtualization_role != "NA"
   tags: docker
 
 # Distro Docker Install
 - block:
-
   - name: docker | install docker
     package:
       name: docker.io
       state: present
     become: yes
-
-  when: ansible_virtualization_role == "guest"
+  when:
+    - ansible_virtualization_role == "guest"
+    - ansible_virtualization_role == "NA"
   tags: docker
 
 # Common Docker setup
 - block:
-
   - name: docker | add docker group
     group:
       name: docker
@@ -57,11 +56,12 @@
       name: docker
       state: started
       enabled: yes
+    when:
+      - ansible_virtualization_role == "guest"
 
   - name: docker | install docker-compose
     package:
       name: docker-compose
       state: present
-
   become: yes
   tags: docker

@@ -8,11 +8,19 @@ function current_branch() {
 }
 
 if ls --color &> /dev/null ; then
-    alias l='ls -lF --color=auto'
-    alias lr='ls -lr --color=auto'
-    alias ls='ls -GF --color=auto'
-    alias ll='ls -alF --color=auto'
-    alias la='ls -Ah --color=auto'
+  alias l='ls -lF --color=auto'
+  alias lr='ls -lr --color=auto'
+  alias ls='ls -GF --color=auto'
+  alias ll='ls -alF --color=auto'
+  alias la='ls -Ah --color=auto'
+fi
+
+if (uname -r | grep -q Microsoft); then
+  alias l='ls -lF --color=never'
+  alias lr='ls -lr --color=never'
+  alias ls='ls -GF --color=never'
+  alias ll='ls -alF --color=never'
+  alias la='ls -Ah --color=never'
 fi
 
 if [ -e /etc/debian_version ]; then

@@ -3,23 +3,27 @@
   tags:
     - base
     - sudo
+    - wsl
 
 - include_tasks: binaries.yml
   tags:
     - base
     - binaries
+    - wsl
 
 - include_tasks: editor.yml
   tags:
     - base
     - vim
     - editor
+    - wsl
 
 - include_tasks: dotfiles.yml
   tags:
     - base
     - dots
     - dotfiles
+    - wsl
 
 - include_tasks: dropbox.yml
   tags:
@@ -28,10 +32,12 @@
 - include_tasks: docker.yml
   tags:
     - docker
+    - wsl
 
 - include_tasks: java-openjdk.yml
   tags:
     - java
+    - wsl
 
 - include_tasks: vscode.yml
   tags:
@@ -84,3 +90,4 @@
     - hashicorp
     - hashi
     - hash
+    - wsl

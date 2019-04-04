@@ -75,3 +75,10 @@ export PATH=$(printf %s "$PATH" | deduplicate.awk)
 #    "$HOME/bin/keychainctl" start
 #    source "$HOME/.keychain/$(hostname -s)-sh"
 #fi
+
+# WSL specific settings
+if (uname -r | grep -q Microsoft); then
+  # WSL creates everything as 777! Workaround.
+  umask 022
+  export DISPLAY=:0
+fi

@@ -1,6 +1,5 @@
 ---
 - block:
-
   - name: vim | vim-nox
     package:
       name: vim-nox
@@ -57,3 +56,4 @@
     - base
     - vim
     - editor
+    - wsl

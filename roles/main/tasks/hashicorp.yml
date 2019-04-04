@@ -1,6 +1,5 @@
 ---
 - block:
-
     - name: hashicorp | install terraform
       unarchive:
         src: "https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip"
@@ -18,10 +17,10 @@
         src: "https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version }}_linux_amd64.zip"
         remote_src: yes
         dest: /usr/local/bin
-
   become: yes
   tags:
     - hashicorp
     - hashi
     - hash
+    - wsl
 

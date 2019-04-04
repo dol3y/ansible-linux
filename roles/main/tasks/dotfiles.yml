@@ -1,6 +1,5 @@
 ---
 - block:
-
   - name: dotfiles | create standard dirs
     file:
       path: "{{ item }}"
@@ -32,3 +31,4 @@
     - base
     - dotfiles
     - dots
+    - wsl

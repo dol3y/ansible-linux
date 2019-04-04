@@ -3,17 +3,17 @@ deps:
 
 pipenv: deps
 	test -f $$HOME/.local/bin/pipenv || pip3 install --user pipenv
-	export PATH=$$HOME/.local/bin:$$PATH && pipenv --three --site-packages
-	export PATH=$$HOME/.local/bin:$$PATH && pipenv install --dev
+	$$HOME/.local/bin/pipenv --three --site-packages
+	$$HOME/.local/bin/pipenv install --dev
 
 lint: pipenv
-	export PATH=$$HOME/.local/bin:$$PATH && pipenv run ansible-lint setup.yml
+	$$HOME/.local/bin/pipenv run ansible-lint setup.yml
 
 sudo: pipenv
-	export PATH=$$HOME/.local/bin:$$PATH && pipenv run ansible-playbook setup.yml --tags sudo -K
+	$$HOME/.local/bin/pipenv run ansible-playbook setup.yml --tags sudo -K
 
 ansible: pipenv
-	export PATH=$$HOME/.local/bin:$$PATH && pipenv run ansible-playbook setup.yml
+	$$HOME/.local/bin/pipenv run ansible-playbook setup.yml
 
 clean:
-	export PATH=$$HOME/.local/bin:$$PATH && pipenv --rm
+	$$HOME/.local/bin/pipenv --rm

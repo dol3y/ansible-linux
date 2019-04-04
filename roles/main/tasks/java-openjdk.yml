@@ -1,6 +1,5 @@
 ---
 - block:
-
   - name: java | install openjdk8
     package:
       name: "{{ item }}"
@@ -13,7 +12,8 @@
     alternatives:
       name: java
       path: /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
-
-  tags: java
   become: yes
+  tags:
+    - java
+    - wsl
 
