@@ -51,6 +51,27 @@
       append: yes
       groups: docker
 
+  - name: docker | override.conf dir
+    file:
+      name: "{{ item }}"
+      state: directory
+      recurse: yes
+    with_items:
+      - /etc/systemd/system/docker.service.d
+    when:
+      - ansible_virtualization_role == "guest"
+
+  - name: docker | write override.conf
+    copy:
+      src: "{{ item }}"
+      dest: "/{{ item }}"
+      backup: yes
+    with_items:
+      - etc/systemd/system/docker.service.d/override.conf
+    when:
+      - ansible_virtualization_role == "guest"
+    notify: restart docker
+
   - name: docker | start
     service:
       name: docker

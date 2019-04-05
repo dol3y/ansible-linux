@@ -81,4 +81,5 @@ if (uname -r | grep -q Microsoft); then
   # WSL creates everything as 777! Workaround.
   umask 022
   export DISPLAY=:0
+  export DOCKER_HOST=tcp://127.0.0.1:2375
 fi
