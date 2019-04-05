@@ -12,6 +12,19 @@
     alternatives:
       name: java
       path: /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+
+  - name: java | gradle
+    unarchive:
+      src: https://services.gradle.org/distributions/gradle-5.3.1-bin.zip
+      remote_src: yes
+      dest: /opt
+
+  - name: java | gradle profile
+    template:
+      src: "{{ item }}.j2"
+      dest: "/{{ item }}"
+    with_items:
+      - etc/profile.d/gradle.sh
   become: yes
   tags:
     - java
