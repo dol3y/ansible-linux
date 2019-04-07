@@ -82,4 +82,5 @@ if (uname -r | grep -q Microsoft); then
   umask 022
   export DISPLAY=:0
   export DOCKER_HOST=tcp://127.0.0.1:2375
+  alias cdw="cd /mnt/c/Users/$USER"
 fi
