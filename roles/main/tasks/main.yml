@@ -76,14 +76,17 @@
 - include_tasks: k8s-tools.yml
   tags:
     - k8s
+    - wsl
 
 - include_tasks: aws.yml
   tags:
     - aws
+    - wsl
 
 - include_tasks: aws-okta.yml
   tags:
     - aws-okta
+    - wsl
 
 - include_tasks: hashicorp.yml
   tags:
