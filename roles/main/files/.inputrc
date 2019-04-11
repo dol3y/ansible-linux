@@ -2,6 +2,8 @@
 # Do NOT modify this file directly.
 
 set editing-mode emacs
+# disable WSL bell in vscode
+set bell-style none
 
 "\e[1;5C": forward-word
 "\e[1;5D": backward-word
