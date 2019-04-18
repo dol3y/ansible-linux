@@ -83,4 +83,7 @@ if (uname -r | grep -q Microsoft); then
   export DISPLAY=:0
   export DOCKER_HOST=tcp://127.0.0.1:2375
   alias cdw="cd /mnt/c/Users/$USER"
+  export NNN_BMS="w:/mnt/c/Users/$USER;s:/mnt/c/Users/$USER/src;d:/mnt/c/Users/$USER/Downloads;D:/mnt/c/Users/$USER/Dropbox"
+  export NNN_SCRIPT="$HOME/src/scripts"
+  export NNN_NOTE="$HOME/Dropbox/share/notes.md"
 fi
