@@ -1,6 +1,16 @@
 # This file is managed by Ansible.
 # Do NOT modify this file directly.
 
+export NNN_TMPFILE="/tmp/nnn"
+
+function n3() {
+  nnn "$@"
+  if [ -f $NNN_TMPFILE ]; then
+    . $NNN_TMPFILE
+    rm -f $NNN_TMPFILE > /dev/null
+  fi
+}
+
 function current_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return
@@ -62,7 +72,6 @@ alias gss='git status -s'
 alias h='history'
 alias j='jobs -l'
 alias mv='mv -i'
-alias n3='nnn'
 alias psh="pipenv shell"
 alias t='tmux'
 alias ta='tmux attach'
