@@ -85,7 +85,7 @@ if grep -q Microsoft /proc/version; then
   export DISPLAY=:0
   export DOCKER_HOST=tcp://127.0.0.1:2375
   export GROOVY_HOME="/mnt/c/groovy-2.5.5"
-  export NNN_BMS="w:/mnt/c/Users/$USER;s:/mnt/c/Users/$USER/src;d:/mnt/c/Users/$USER/Downloads;D:/mnt/c/Users/$USER/Dropbox;n:/mnt/c/Users/$USER/Dropbox/notes"
+  export NNN_BMS="w:/mnt/c/Users/$USER;d:/mnt/c/Users/$USER/Downloads;D:/mnt/c/Users/$USER/Dropbox;n:/mnt/c/Users/$USER/Dropbox/notes"
   export NNN_NOTE="$HOME/Dropbox/share/notes.md"
   export NNN_SCRIPT="$HOME/src/scripts"
   alias cdw="cd /mnt/c/Users/$USER"
