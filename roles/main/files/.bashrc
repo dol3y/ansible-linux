@@ -79,13 +79,13 @@ export PATH=$(printf %s "$PATH" | deduplicate.awk)
 # WSL specific settings
 if grep -q Microsoft /proc/version; then
   # WSL creates everything as 777! Workaround.
-  if [ "$(umask)" == '0000' ]; then
+  if [ "$(umask)" == "0000" ]; then
     umask 0022
   fi
-  export DISPLAY=:0
-  export DOCKER_HOST=tcp://127.0.0.1:2375
+  export DISPLAY=":0"
+  export DOCKER_HOST="tcp://127.0.0.1:2375"
   export GROOVY_HOME="/mnt/c/groovy-2.5.5"
-  export NNN_BMS="w:/mnt/c/Users/$USER;d:/mnt/c/Users/$USER/Downloads;D:/mnt/c/Users/$USER/Dropbox;n:/mnt/c/Users/$USER/Dropbox/notes"
+  export NNN_BMS="w:/mnt/c/Users/$USER;s:/mnt/c/Users/$USER/src;d:/mnt/c/Users/$USER/Downloads;D:/mnt/c/Users/$USER/Dropbox;n:/mnt/c/Users/$USER/Dropbox/notes"
   export NNN_NOTE="$HOME/Dropbox/share/notes.md"
   export NNN_SCRIPT="$HOME/src/scripts"
   alias cdw="cd /mnt/c/Users/$USER"
