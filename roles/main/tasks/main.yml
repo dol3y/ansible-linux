@@ -105,3 +105,8 @@
     - hashi
     - hash
     - wsl
+
+- include_tasks: next.yml
+  tags:
+    - never
+    - next
