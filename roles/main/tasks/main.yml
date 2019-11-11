@@ -27,6 +27,7 @@
 
 - include_tasks: dropbox.yml
   tags:
+    - never
     - dropbox
 
 - include_tasks: docker.yml
@@ -41,32 +42,38 @@
 
 - include_tasks: vscode.yml
   tags:
+    - never
     - vscode
 
 - include_tasks: dbeaver.yml
   tags:
+    - never
     - dbeaver
 
 - include_tasks: i3wm.yml
   tags:
-    - binaries
+    - never
     - i3
 
 - include_tasks: fonts.yml
   tags:
+    - never
     - fonts
     - i3
 
 - include_tasks: chrome.yml
   tags:
+    - never
     - chrome
 
 - include_tasks: keepassxc.yml
   tags:
+    - never
     - kpxc
 
 - include_tasks: mpd.yml
   tags:
+    - never
     - mpd
 
 - include_tasks: ubuntu1804.yml
@@ -75,21 +82,25 @@
 
 - include_tasks: k8s-tools.yml
   tags:
+    - never
     - k8s
     - wsl
 
 - include_tasks: aws.yml
   tags:
+    - never
     - aws
     - wsl
 
 - include_tasks: aws-okta.yml
   tags:
+    - never
     - aws-okta
     - wsl
 
 - include_tasks: hashicorp.yml
   tags:
+    - never
     - hashicorp
     - hashi
     - hash
