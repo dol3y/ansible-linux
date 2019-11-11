@@ -6,7 +6,6 @@
       state: directory
       recurse: yes
     with_items:
-      - "{{ my_bin }}"
       - "{{ my_src }}"
       - "{{ home_dir }}/go"
 
@@ -18,14 +17,6 @@
     with_fileglob:
       - .*
     notify: merge xresources
-
-  - name: dotfiles | scripts
-    copy:
-      src: "{{ item }}"
-      dest: "{{ my_bin }}/{{ item | basename }}"
-      mode: 0754
-    with_fileglob:
-      - scripts/*
 
   tags:
     - base

@@ -69,6 +69,12 @@ if [ -d $HOME/bin ]; then
   PATH="$HOME/bin:$PATH"
 fi
 
+# TODO: move this out
+if [ -d $HOME/opt/groovy-2.5.5 ]; then
+  PATH="$HOME/opt/groovy-2.5.5/bin:$PATH"
+  export GROOVY_HOME="$HOME/opt/groovy-2.5.5"
+fi
+
 export PATH=$(printf %s "$PATH" | deduplicate.awk)
 
 #if [ ! -z ${XDG_CURRENT_DESKTOP+x} ] && [ $XDG_CURRENT_DESKTOP == 'i3' ]; then
