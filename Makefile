@@ -17,4 +17,4 @@ upgrade:
 rm:
 	$$HOME/.local/bin/pipenv --rm
 
-.PHONY: dependencies install upgrade rm
+.PHONY: dependencies install update upgrade rm
