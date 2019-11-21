@@ -1,6 +1,5 @@
 ---
 - block:
-
   - name: vscode | add microsoft signing key
     apt_key:
       url: https://packages.microsoft.com/keys/microsoft.asc

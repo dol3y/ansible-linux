@@ -15,6 +15,7 @@
     with_items:
       - nautilus-dropbox
       - thunar-dropbox-plugin
+
   become: yes
   tags:
     - dropbox

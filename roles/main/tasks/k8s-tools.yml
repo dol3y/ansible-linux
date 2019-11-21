@@ -4,12 +4,13 @@
     package:
       name: socat
       state: present
+
   become: yes
   tags:
     - k8s
     - wsl
 
-# TODO consolidate these 2 methods next VM rebuild, no point having both
+# TODO: consolidate these 2 methods next VM rebuild, no point having both
 - block:
   - name: install kubectl snap
     command: snap install kubectl --classic
@@ -20,11 +21,12 @@
     command: snap install helm --classic
     args:
       creates: /snap/bin/helm
+
   become: yes
-  when:
-    - ansible_virtualization_role == "guest"
   tags:
     - k8s
+  when:
+    - ansible_virtualization_role == "guest"
 
 - block:
   - name: kubectl | add key
@@ -59,9 +61,10 @@
     with_items:
       - tiller
       - helm
+
   become: yes
-  when:
-    - ansible_virtualization_role == "NA"
   tags:
     - k8s
     - wsl
+  when:
+    - ansible_virtualization_role == "NA"

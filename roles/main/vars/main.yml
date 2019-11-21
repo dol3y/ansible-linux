@@ -50,6 +50,8 @@ binaries:
   - unzip
   - uptimed
   - whois
+
+xbinaries:
   - zathura
   - zathura-pdf-poppler
 

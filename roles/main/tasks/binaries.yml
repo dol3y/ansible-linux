@@ -6,7 +6,6 @@
       state: present
     with_items:
       - "{{ binaries }}"
-    become: yes
 
   - name: binaries | guest specific packages
     package:
@@ -16,7 +15,16 @@
       - dkms
       - openssh-server
     when: ansible_virtualization_role == "guest"
-    become: yes
+
+  - name: binaries | x packages
+    package:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - "{{ xbinaries }}"
+    when: ansible_virtualization_role == "host"
+
+  become: yes
   tags:
     - base
     - binaries

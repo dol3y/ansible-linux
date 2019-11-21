@@ -1,6 +1,5 @@
 ---
 - block:
-
   # https://keepassxc.org/download
   - name: keepassxc | official ubuntu ppa
     apt_repository:
@@ -15,8 +14,8 @@
     with_items:
       - keepassxc
 
-  become: yes
   when: ansible_virtualization_role == "host"
+  become: yes
   tags:
     - kpxc
 

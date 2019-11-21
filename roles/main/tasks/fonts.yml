@@ -1,6 +1,5 @@
 ---
 - block:
-
   - name: fonts | create fonts dir
     file:
       path: /opt/fonts

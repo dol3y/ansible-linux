@@ -1,6 +1,5 @@
 ---
 - block:
-
   - name: mpd | install
     package:
       name: "{{ item }}"

@@ -1,6 +1,5 @@
 ---
 - block:
-
   - name: i3 | install
     package:
       name: "{{ item }}"

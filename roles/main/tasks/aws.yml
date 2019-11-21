@@ -15,7 +15,7 @@
     command: ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
     args:
       chdir: /tmp
-      creates: /usr/local/aws
+      #creates: /usr/local/aws
     become: yes
 
   - name: aws | create ~/.aws
@@ -29,6 +29,7 @@
       dest: /usr/local/bin
       mode: 0755
     become: yes
+
   tags:
     - aws
     - wsl

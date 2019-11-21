@@ -1,22 +1,23 @@
 ---
 - block:
-    - name: hashicorp | install terraform
-      unarchive:
-        src: "https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip"
-        remote_src: yes
-        dest: /usr/local/bin
+  - name: hashicorp | install terraform
+    unarchive:
+      src: "https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip"
+      remote_src: yes
+      dest: /usr/local/bin
 
-    - name: hashicorp | install consul
-      unarchive:
-        src: "https://releases.hashicorp.com/consul/{{ consul_version }}/consul_{{ consul_version }}_linux_amd64.zip"
-        remote_src: yes
-        dest: /usr/local/bin
+  - name: hashicorp | install consul
+    unarchive:
+      src: "https://releases.hashicorp.com/consul/{{ consul_version }}/consul_{{ consul_version }}_linux_amd64.zip"
+      remote_src: yes
+      dest: /usr/local/bin
 
-    - name: hashicorp | install vault
-      unarchive:
-        src: "https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version }}_linux_amd64.zip"
-        remote_src: yes
-        dest: /usr/local/bin
+  - name: hashicorp | install vault
+    unarchive:
+      src: "https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version }}_linux_amd64.zip"
+      remote_src: yes
+      dest: /usr/local/bin
+
   become: yes
   tags:
     - hashicorp

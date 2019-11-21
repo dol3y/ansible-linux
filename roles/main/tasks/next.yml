@@ -1,6 +1,5 @@
 ---
 # Next browser - https://github.com/atlas-engineer/next
-
 - block:
   - name: next | dependencies
     package:
@@ -12,12 +11,11 @@
       - sqlite
       - libfixposix-dev
       - xclip
-    become: yes
 
   - name: next | install
     apt:
       deb: https://next.atlas.engineer/static/release/next_1.3.4_amd64.deb
-    tags: next
-    become: yes
+
+  become: yes
   tags:
     - next

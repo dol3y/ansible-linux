@@ -1,6 +1,5 @@
 ---
 - block:
-
   - name: fix audio stuttering
     lineinfile:
       path: /etc/pulse/daemon.conf

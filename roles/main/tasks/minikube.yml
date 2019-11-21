@@ -24,6 +24,7 @@
     with_items:
       - "{{ home_dir }}/.minikube"
       - "{{ home_dir }}/.kube"
+  
   become: yes
   tags: minikube
 

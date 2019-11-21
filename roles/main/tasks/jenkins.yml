@@ -4,31 +4,37 @@
     apt:
       name: groovy
       state: present
+
   - name: jenkins | add signing key
     apt_key:
       url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
       state: present
+
   - name: jenkins | add repo
     apt_repository:
       filename: jenkins
       repo: "deb https://pkg.jenkins.io/debian-stable binary/"
       update_cache: yes
       state: present
+
   - name: jenkins | install package
     apt:
       name: jenkins=2.138.3
       state: present
+
   - name: jenkins | add to docker group
     user:
       name: jenkins
       groups: docker
       append: yes
+
   - name: jenkins | change default port
     lineinfile:
       path: /etc/default/jenkins
       regexp: '^HTTP_PORT=8080$'
       line: 'HTTP_PORT=8088'
     notify: restart jenkins
+
   become: yes
   tags:
     - jenkins

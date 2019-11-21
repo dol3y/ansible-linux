@@ -1,6 +1,5 @@
 ---
 - block:
-
   - name: chrome | add google signing key
     apt_key:
       url: https://dl-ssl.google.com/linux/linux_signing_key.pub

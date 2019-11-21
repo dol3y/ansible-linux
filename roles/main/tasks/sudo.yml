@@ -6,6 +6,7 @@
       dest: "/etc/sudoers.d/{{ user }}"
       validate: 'visudo -cf %s'
     become: yes
+
   tags:
     - base
     - sudo

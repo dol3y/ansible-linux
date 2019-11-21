@@ -25,6 +25,7 @@
       dest: "/{{ item }}"
     with_items:
       - etc/profile.d/gradle.sh
+
   become: yes
   tags:
     - java

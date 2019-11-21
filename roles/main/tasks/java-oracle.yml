@@ -1,6 +1,5 @@
 ---
 - block:
-
   - name: java | install webupd8 ppa
     apt_repository:
       repo: "ppa:webupd8team/java"
