@@ -1,6 +1,15 @@
 # This file is managed by Ansible.
 # Do NOT modify this file directly.
 
+black='\e[0;30m'
+red='\e[0;31m'
+green='\e[0;32m'
+yellow='\e[0;33m'
+blue='\e[0;34m'
+purple='\e[0;35m'
+cyan='\e[0;36m'
+white='\e[0;37m'
+
 # source global definitions
 if [ -f /etc/bashrc ]; then
   . /etc/bashrc
@@ -22,29 +31,18 @@ shopt -s checkwinsize
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-export HISTSIZE=32769
-export HISTCONTROL=ignoredups:erasedups
-
 export EDITOR="vim"
-export NNN_USE_EDITOR=1
+export HISTCONTROL=ignoredups:erasedups
+export HISTSIZE=32769
 export NNN_BMS="d:$HOME/Dropbox;s:$HOME/src"
-export NNN_SCRIPT="$HOME/Dropbox/share/bin"
 export NNN_NOTE="$HOME/Dropbox/share/notes.md"
+export NNN_SCRIPT="$HOME/Dropbox/share/bin"
+export NNN_USE_EDITOR=1
 
 # alias definitions.
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-
-black='\e[0;30m'
-red='\e[0;31m'
-green='\e[0;32m'
-yellow='\e[0;33m'
-blue='\e[0;34m'
-purple='\e[0;35m'
-cyan='\e[0;36m'
-white='\e[0;37m'
 
 # debian/ubuntu
 if [ -e /etc/debian_version ]; then
@@ -69,13 +67,16 @@ if [ -d $HOME/bin ]; then
   PATH="$HOME/bin:$PATH"
 fi
 
-# TODO: move this out
 if [ -d $HOME/opt/groovy-2.5.5 ]; then
   PATH="$HOME/opt/groovy-2.5.5/bin:$PATH"
   export GROOVY_HOME="$HOME/opt/groovy-2.5.5"
 fi
 
-export PATH=$(printf %s "$PATH" | deduplicate.awk)
+if [ -f /usr/local/bin/deduplicate.awk ]; then
+  export PATH=$(printf %s "$PATH" | deduplicate.awk)
+else
+  export PATH
+fi
 
 #if [ ! -z ${XDG_CURRENT_DESKTOP+x} ] && [ $XDG_CURRENT_DESKTOP == 'i3' ]; then
 #    "$HOME/bin/keychainctl" start

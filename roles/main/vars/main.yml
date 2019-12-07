@@ -5,7 +5,6 @@ user: "{{ lookup('env','USER') }}"
 vim_autoload: "{{ home_dir }}/.vim/autoload"
 vim_bundle: "{{ home_dir }}/.vim/bundle"
 
-# TODO: remove X bins from here, this should just be CLI
 binaries:
   - alpine
   - apt-file
