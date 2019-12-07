@@ -34,7 +34,7 @@
       backup: yes
     with_items:
       - .config/dunst/dunstrc
-      #- .config/i3/config
+      - .config/i3/config
 
   - name: i3 | add i3blocks config
     template:

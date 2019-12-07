@@ -76,9 +76,9 @@
     - never
     - mpd
 
-- include_tasks: ubuntu1804.yml
+- include_tasks: xubuntu1804.yml
   tags:
-    - ubuntu
+    - xubuntu
 
 - include_tasks: k8s-tools.yml
   tags:

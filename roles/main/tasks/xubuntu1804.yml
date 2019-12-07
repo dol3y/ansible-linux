@@ -1,0 +1,60 @@
+---
+# Changes to the default xubuntu, with T440 hardware
+- block:
+  - name: xubuntu | fix audio stuttering
+    lineinfile:
+      backup: yes
+      insertafter: EOF
+      line: 'realtime-scheduling = no'
+      path: /etc/pulse/daemon.conf
+    notify: restart pulse audio
+
+  - name: xubuntu | blacklist realtek wifi
+    lineinfile:
+      backup: yes
+      dest: /etc/modprobe.d/blacklist.conf
+      insertafter: EOF
+      line: 'blacklist rtl8192ee'
+
+  - name: xubuntu | remove xfce4-notifyd
+    package:
+      name: "{{ item }}"
+      state: absent
+    with_items:
+      - xfce4-notifyd
+
+  - name: xubuntu | install dunst
+    package:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - dunst
+
+  - name: xubuntu | create config dirs
+    file:
+      name: "{{ home_dir }}/{{ item }}"
+      owner: "{{ user }}"
+      group: "{{ user }}"
+      recurse: yes
+      state: directory
+    with_items:
+      - .config/dunst
+      - .config/xfce4/terminal
+
+  - name: xubuntu | add configs
+    copy:
+      src: "{{ item }}"
+      dest: "{{ home_dir }}/{{ item }}"
+      owner: "{{ user }}"
+      group: "{{ user }}"
+      mode: 0644
+      backup: yes
+    with_items:
+      - .config/dunst/dunstrc
+      - .config/xfce4/terminal/terminalrc
+
+  become: yes
+  when:
+    - ansible_virtualization_role == "host"
+    - ansible_product_version == "ThinkPad T440"
+  tags: xubuntu
