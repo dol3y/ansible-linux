@@ -4,7 +4,6 @@
     file:
       path: "{{ item }}"
       state: directory
-      recurse: yes
     with_items:
       - "{{ my_src }}"
       - "{{ home_dir }}/go"

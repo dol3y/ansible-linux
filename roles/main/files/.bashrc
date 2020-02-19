@@ -97,3 +97,7 @@ if grep -q Microsoft /proc/version; then
   export NNN_SCRIPT="$HOME/src/scripts"
   alias cdw="cd /mnt/c/Users/$USER"
 fi
+
+if command -v direnv>/dev/null; then
+  eval "$(direnv hook bash)"
+fi

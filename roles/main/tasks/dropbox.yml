@@ -16,6 +16,7 @@
       - nautilus-dropbox
       - thunar-dropbox-plugin
 
+  when: ansible_virtualization_role == "host"
   become: yes
   tags:
     - dropbox

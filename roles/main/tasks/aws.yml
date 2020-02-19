@@ -1,22 +1,23 @@
 ---
 - block:
-  - name: aws | get aws cli
-    get_url:
-      url: https://s3.amazonaws.com/aws-cli/awscli-bundle.zip
-      dest: /tmp
+  #TODO: https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
+  #- name: aws | get aws cli
+  #  get_url:
+  #    url: https://s3.amazonaws.com/aws-cli/awscli-bundle.zip
+  #    dest: /tmp
 
-  - name: aws | unzip awscli-bundle
-    unarchive:
-      src: /tmp/awscli-bundle.zip
-      dest: /tmp
-      remote_src: yes
+  #- name: aws | unzip awscli-bundle
+  #  unarchive:
+  #    src: /tmp/awscli-bundle.zip
+  #    dest: /tmp
+  #    remote_src: yes
 
-  - name: aws | install awscli
-    command: ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
-    args:
-      chdir: /tmp
-      #creates: /usr/local/aws
-    become: yes
+  #- name: aws | install awscli
+  #  command: ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+  #  args:
+  #    chdir: /tmp
+  #    #creates: /usr/local/aws
+  #  become: yes
 
   - name: aws | create ~/.aws
     file:
