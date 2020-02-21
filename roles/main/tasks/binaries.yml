@@ -13,6 +13,7 @@
       state: present
     with_items:
       - dkms
+      - linux-headers-generic
       - openssh-server
     when: ansible_virtualization_role == "guest"
 

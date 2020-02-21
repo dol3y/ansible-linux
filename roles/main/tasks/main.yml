@@ -27,8 +27,8 @@
 
 - include_tasks: dropbox.yml
   tags:
-    - never
     - dropbox
+  when: ansible_virtualization_role == "host"
 
 - include_tasks: docker.yml
   tags:
@@ -44,16 +44,22 @@
   tags:
     - never
     - vscode
+  when:
+    - ansible_virtualization_role == "host"
 
 - include_tasks: dbeaver.yml
   tags:
     - never
     - dbeaver
+  when:
+    - ansible_virtualization_role == "host"
 
 - include_tasks: i3wm.yml
   tags:
     - never
     - i3
+  when:
+    - ansible_virtualization_role == "host"
 
 - include_tasks: fonts.yml
   tags:
@@ -65,38 +71,61 @@
   tags:
     - never
     - chrome
+  when:
+    - ansible_virtualization_role == "host"
 
 - include_tasks: keepassxc.yml
   tags:
     - never
     - kpxc
+  when:
+    - ansible_virtualization_role == "host"
 
 - include_tasks: mpd.yml
   tags:
     - never
     - mpd
+  when:
+    - ansible_virtualization_role == "host"
 
-- include_tasks: xubuntu1804.yml
+- include_tasks: 16.04.yml
   tags:
     - xubuntu
+  when:
+    - ansible_virtualization_role == "host"
+    - ansible_product_version == "ThinkPad T440"
+    - ansible_distribution_version = "16.04"
+
+- include_tasks: 18.04.yml
+  tags:
+    - xubuntu
+  when:
+    - ansible_virtualization_role == "host"
+    - ansible_product_version == "ThinkPad T440"
+    - ansible_distribution_version = "18.04"
+
+- include_tasks: 20.04.yml
+  tags:
+    - xubuntu
+  when:
+    - ansible_virtualization_role == "host"
+    - ansible_product_version == "ThinkPad T440"
+    - ansible_distribution_version = "20.04"
 
 - include_tasks: k8s-tools.yml
   tags:
     - never
     - k8s
-    - wsl
 
 - include_tasks: aws.yml
   tags:
     - never
     - aws
-    - wsl
 
 - include_tasks: aws-okta.yml
   tags:
     - never
     - aws-okta
-    - wsl
 
 - include_tasks: hashicorp.yml
   tags:
@@ -104,9 +133,10 @@
     - hashicorp
     - hashi
     - hash
-    - wsl
 
 - include_tasks: next.yml
   tags:
     - never
     - next
+  when:
+    - ansible_virtualization_role == "host"

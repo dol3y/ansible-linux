@@ -1,5 +1,5 @@
 ---
-# Changes to the default xubuntu, with T440 hardware
+# ThinkPad T440 specific for 18.04 LTS
 - block:
   - name: xubuntu | fix audio stuttering
     lineinfile:
@@ -57,4 +57,5 @@
   when:
     - ansible_virtualization_role == "host"
     - ansible_product_version == "ThinkPad T440"
+    - ansible_distribution_version = "18.04"
   tags: xubuntu

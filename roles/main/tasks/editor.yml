@@ -4,8 +4,6 @@
     package:
       name: vim-nox
       state: present
-    when:
-      - ansible_os_family == "Debian"
     become: yes
 
   - name: vim | update-alternatives

@@ -1,34 +1,5 @@
 ---
 - block:
-  - name: install socat (for helm)
-    package:
-      name: socat
-      state: present
-
-  become: yes
-  tags:
-    - k8s
-    - wsl
-
-# TODO: consolidate these 2 methods next VM rebuild, no point having both
-- block:
-  - name: install kubectl snap
-    command: snap install kubectl --classic
-    args:
-      creates: /snap/bin/kubectl
-
-  - name: install helm snap
-    command: snap install helm --classic
-    args:
-      creates: /snap/bin/helm
-
-  become: yes
-  tags:
-    - k8s
-  when:
-    - ansible_virtualization_role == "guest"
-
-- block:
   - name: kubectl | add key
     apt_key:
       url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
@@ -46,11 +17,16 @@
       name: kubectl
       state: present
 
+  - name: helm | socat
+    package:
+      name: socat
+      state: present
+
   - name: helm | install
     unarchive:
       dest: /tmp
       remote_src: yes
-      src: https://storage.googleapis.com/kubernetes-helm/helm-v2.12.0-linux-amd64.tar.gz
+      src: "https://storage.googleapis.com/kubernetes-helm/helm-v{{ helm_version }}-linux-amd64.tar.gz"
 
   - name: helm | copy files to bin
     copy:
@@ -66,5 +42,3 @@
   tags:
     - k8s
     - wsl
-  when:
-    - ansible_virtualization_role == "NA"

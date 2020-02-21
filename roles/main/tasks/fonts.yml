@@ -22,31 +22,24 @@
       dest: /usr/share/fonts/Font-Awesome/fontawesome-webfont.ttf
       state: link
 
-#  - name: fonts | extract yosemite-sf
-#    unarchive:
-#      src: https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
-#      dest: /opt/fonts
-#      copy: no
+  - name: fonts | extract yosemite-sf
+    unarchive:
+      src: https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
+      dest: /opt/fonts
+      copy: no
 
-#  - name: fonts | create yosemite-sf dir
-#    file:
-#      path: /usr/share/fonts/YosemiteSanFranciscoFont
-#      state: directory
+  - name: fonts | create yosemite-sf dir
+    file:
+      path: /usr/share/fonts/YosemiteSanFranciscoFont
+      state: directory
 
-#  - name: fonts | install yosemite-sf
-#    file:
-#      src: "{{ item }}"
-#      dest: "/usr/share/fonts/YosemiteSanFranciscoFont/{{ item | basename }}"
-#      state: link
-#    with_fileglob:
-#      - /opt/fonts/YosemiteSanFranciscoFont-master/*.ttf
-
-  - name: fonts | inconsolata
-    package:
-      name: "{{ item }}"
-      state: present
-    with_items:
-      - fonts-inconsolata
+  - name: fonts | install yosemite-sf
+    file:
+      src: "{{ item }}"
+      dest: "/usr/share/fonts/YosemiteSanFranciscoFont/{{ item | basename }}"
+      state: link
+    with_fileglob:
+      - /opt/fonts/YosemiteSanFranciscoFont-master/*.ttf
 
   become: yes
   tags:

@@ -1,14 +1,16 @@
 ---
-- name: insomnia | install
-  apt:
-    deb: https://downloads.insomnia.rest/linux/insomnia_4.2.14_amd64.deb
-  tags: insomnia
-  become: yes
+- block:
+  - name: insomnia | install
+    apt:
+      deb: https://downloads.insomnia.rest/linux/insomnia_4.2.14_amd64.deb
 
-- name: insomnia | update .desktop file
-  lineinfile:
-    dest: /usr/share/applications/Insomnia.desktop
-    line: Categories=Development;
-    state: present
-  tags: insomnia
+  - name: insomnia | update .desktop file
+    lineinfile:
+      dest: /usr/share/applications/Insomnia.desktop
+      line: Categories=Development;
+      state: present
+
   become: yes
+  when:
+    - ansible_virtualization_role == "host"
+  tags: insomnia

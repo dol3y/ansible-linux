@@ -1,4 +1,5 @@
 ---
+# Prefer Docker image over this
 - block:
   - name: jenkins | install groovy for testing
     apt:

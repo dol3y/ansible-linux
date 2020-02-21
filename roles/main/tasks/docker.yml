@@ -1,45 +1,10 @@
 ---
-# PPA Docker Install
-- block:
-  - name: docker | add key
-    apt_key:
-      url: https://download.docker.com/linux/ubuntu/gpg
-      id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
-      state: present
-
-  - name: docker | install docker repo
-    apt_repository:
-      filename: docker
-      repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
-      update_cache: yes
-      state: present
-
-  - name: docker | install docker
-    package:
-      name: docker-ce
-      state: present
-
-  become: yes
-  tags: docker
-  when:
-    - ansible_virtualization_role == "host"
-    - ansible_virtualization_role != "NA"
-
-# Distro Docker Install
 - block:
   - name: docker | install docker
     package:
       name: docker.io
       state: present
 
-  become: yes
-  tags: docker
-  when:
-    - ansible_virtualization_role == "guest"
-    - ansible_virtualization_role == "NA"
-
-# Common Docker setup
-- block:
   - name: docker | add docker group
     group:
       name: docker
@@ -78,12 +43,14 @@
       state: started
       enabled: yes
     when:
-      - ansible_virtualization_role == "guest"
+      - ansible_kernel is not search("Microsoft")
 
   - name: docker | install docker-compose
     package:
       name: docker-compose
       state: present
+    when:
+      - ansible_kernel is not search("Microsoft")
 
   become: yes
   tags: docker

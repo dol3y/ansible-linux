@@ -1,0 +1,50 @@
+---
+# ThinkPad T440 specific for 16.04 LTS
+- block:
+  - name: xfce | numix ppa
+    apt_repository:
+      repo: "ppa:numix/ppa"
+      update_cache: yes
+      state: present
+
+  - name: xfce | themes
+    apt:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - gtk2-engines-murrine
+      - numix-gtk-theme
+      - numix-icon-theme
+      - numix-icon-theme-circle
+
+  # https://github.com/lwfinger/rtlwifi_new - still rubbish
+  - name: thinkpad | realtek wifi config
+    copy:
+      src: "{{ item }}"
+      dest: "/{{ item }}"
+    with_items:
+      - etc/modprobe.d/rtl8192ee.conf
+    tags: realtek
+
+  - name: thinkpad | install uswsusp
+    package:
+      name: uswsusp
+      state: present
+    tags: hibernate
+
+  # https://ubuntuforums.org/showthread.php?t=2332834
+  - name: thinkpad | enable hibernation
+    copy:
+      src: "{{ item }}"
+      dest: "/{{ item }}"
+      backup: yes
+    with_items:
+      - etc/polkit-1/localauthority/50-local.d/com.ubuntu.enable-hibernate.pkla
+    tags: hibernate
+
+  become: yes
+  when:
+    - ansible_virtualization_role == "host"
+    - ansible_product_version == "ThinkPad T440"
+    - ansible_distribution_version = "16.04"
+  tags: xubuntu
