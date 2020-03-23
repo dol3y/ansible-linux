@@ -1,0 +1,19 @@
+---
+- block:
+  - name: groovy | download
+    unarchive:
+      src: "https://bintray.com/artifact/download/groovy/maven/apache-groovy-binary-{{ groovy_version }}.zip"
+      remote_src: yes
+      dest: /opt
+
+  - name: groovy | profile
+    template:
+      src: "{{ item }}.j2"
+      dest: "/{{ item }}"
+    with_items:
+      - etc/profile.d/groovy.sh
+
+  become: yes
+  tags:
+    - groovy
+

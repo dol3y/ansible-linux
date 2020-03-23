@@ -134,6 +134,11 @@
     - hashi
     - hash
 
+- include_tasks: groovy-lang.yml
+  tags:
+    - never
+    - groovy
+
 - include_tasks: next.yml
   tags:
     - never
