@@ -3,8 +3,6 @@
 
 set nocompatible
 
-let mapleader=" "
-
 execute pathogen#infect()
 
 syntax on
@@ -13,8 +11,7 @@ try
 catch
 endtry
 
-" Uncomment the following to have Vim jump to the last position when
-" reopening a file
+" Jump to the last position when reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
@@ -66,52 +63,25 @@ noremap <Right> <Nop>
 "  \ 'a': '#S:#P',
 "  \ 'win': '#I:#F',
 "  \ 'cwin': '#I:#F',
-"  \ 'y': "Batt:#(~/bin/battery)",
+"  \ 'y': "Batt:#(battery)",
 "  \ 'z': '%d/%m/%y %R'}
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
 
-" use goimports for formatting
-let g:go_fmt_command = "goimports"
-
-" turn highlighting on
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-
-let g:syntastic_go_checkers = ['golint', 'errcheck']
-
-" Open go doc in vertical window, horizontal, or tab
-au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
-au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
-au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
-
-"let g:pymode_python = 'python3'
-
-let g:vimwiki_list = [{'path': '$HOME/Dropbox/share/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
-
-function! s:goyo_enter()
-  "silent !tmux set status off
-  "silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-  set noshowmode
-  set noshowcmd
-  set wrap
-  set scrolloff=999
-  "set nonumber norelativenumber
-endfunction
-
-function! s:goyo_leave()
-  "silent !tmux set status on
-  "silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
-  set showmode
-  set showcmd
-  set nowrap
-  set scrolloff=5
-  "set number relativenumber
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
+"" use goimports for formatting
+"let g:go_fmt_command = "goimports"
+"
+"" turn highlighting on
+"let g:go_highlight_functions = 1
+"let g:go_highlight_methods = 1
+"let g:go_highlight_structs = 1
+"let g:go_highlight_operators = 1
+"let g:go_highlight_build_constraints = 1
+"
+"let g:syntastic_go_checkers = ['golint', 'errcheck']
+"
+"" Open go doc in vertical window, horizontal, or tab
+"au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
+"au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
+"au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
