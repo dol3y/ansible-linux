@@ -81,8 +81,8 @@ vim_plugins:
   - git://github.com/tpope/vim-endwise.git
   - git://github.com/tpope/vim-sensible.git
   - git://github.com/tpope/vim-surround.git
-  - git://github.com/vimwiki/vimwiki.git
-  - git://github.com/junegunn/goyo.vim.git
+  #  - git://github.com/vimwiki/vimwiki.git
+  #  - git://github.com/junegunn/goyo.vim.git
 
 minikube_url: https://storage.googleapis.com/minikube/releases/v0.30.0/minikube-linux-amd64
 
