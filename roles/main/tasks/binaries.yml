@@ -25,6 +25,10 @@
       - "{{ xbinaries }}"
     when: ansible_virtualization_role == "host"
 
+  - name: binaries | nnn
+    apt:
+      deb: https://github.com/jarun/nnn/releases/download/v2.9/nnn_2.9-1_ubuntu18.04.amd64.deb
+
   become: yes
   tags:
     - base

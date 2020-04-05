@@ -85,3 +85,4 @@ let g:neocomplete#enable_at_startup = 1
 "au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
 "au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
 "au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
+

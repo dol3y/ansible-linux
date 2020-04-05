@@ -33,7 +33,6 @@ binaries:
   - ncmpcpp
   - ngrep
   - nmap
-  - nnn
   - pkg-config
   - p7zip-full
   - p7zip-rar
