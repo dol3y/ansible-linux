@@ -17,7 +17,7 @@ check_mount () {
   mount | grep -q VBox_GA
 }
 
-read -p "Make sure the guest additions disk has been mounted? "
+read -p "Make sure the guest additions disk has been mounted! "
 
 check_mount
 install_packages

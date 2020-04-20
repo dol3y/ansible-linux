@@ -76,11 +76,6 @@ alias psh="pipenv shell"
 alias t='tmux'
 alias ta='tmux attach'
 alias tree='tree -C'
-alias vdest='vagrant destroy -f'
-alias vhalt='vagrant halt'
-alias vprov='vagrant provision'
-alias vreload='vagrant reload'
-alias vssh='vagrant ssh'
-alias vup='vagrant up'
+alias vim='nvim'
 alias wget='wget -c'
 

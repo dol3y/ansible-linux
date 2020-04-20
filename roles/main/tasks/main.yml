@@ -11,7 +11,7 @@
     - binaries
     - wsl
 
-- include_tasks: editor.yml
+- include_tasks: editor-neovim.yml
   tags:
     - base
     - vim
